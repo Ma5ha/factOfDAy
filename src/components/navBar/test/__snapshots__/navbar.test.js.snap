@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sasas 1`] = `
+<nav
+  className="bottomMarginNav flexRow flexCenter whiteBackGround"
+/>
+`;
