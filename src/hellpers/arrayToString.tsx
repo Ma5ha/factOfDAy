@@ -1,4 +1,4 @@
-const arrayToString = (array: string[]): string => {
+const arrayToString = (array: string[] | Array<string[]>) => {
   return array.join(" ");
 };
 
