@@ -1,0 +1,28 @@
+.whiteBackGround {
+    background-color: blue;
+    height: 100px;
+    transition: background-color 6s;
+    transition-duration: 5s;
+}
+
+.darkBackGround {
+    background-color: rgb(5, 5, 8);
+    height: 100px;
+    transition: background-color 6s;
+    transition-duration: 5s;
+}
+
+/* .whiteBackGround:hover {
+    background-color: rgb(5, 5, 8);
+    height: 100px;
+    transition: background-color 6s;
+    transition-duration: 5s;
+} */
+
+.tranistion {
+    background-color: inherit;
+}
+
+.bottomMarginNav {
+    margin-bottom: 10px;
+}

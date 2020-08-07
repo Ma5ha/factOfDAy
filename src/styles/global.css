@@ -1,0 +1,34 @@
+.flexRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.flexCenter {
+  justify-content: flex-end;
+  align-content: center;
+}
+
+.autoMargin {
+  margin: auto;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.fullSolidBorder {
+  border: solid;
+}
+
+.fitContent {
+  width: fit-content;
+}
+
+.spaceAround {
+  justify-content: space-around;
+}

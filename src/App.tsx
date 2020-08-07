@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import NavBar from "./components/navBar/navbar";
+
+import getTheme from "./styles/setTheme";
+import ToggleButton from "./components/toggleButton/toggle";
+import themeStyle from "./hellpers/theme";
+import "./styles/global.css";
+import QuoteController from "./components/quote/quoteContorller";
+import { flexColumn, autoMargin } from "./styles/style.var";
+import arrayToString from "./hellpers/arrayToString";
 
 function App() {
+  const [, setTheme] = useState(getTheme);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={arrayToString([flexColumn, autoMargin, "spaceAround"])}>
+      <NavBar>
+        <ToggleButton data={setTheme} />
+      </NavBar>
+      <div className={autoMargin}>
+        <QuoteController />
+      </div>
     </div>
   );
 }
