@@ -5,3 +5,9 @@ exports[`sasas 1`] = `
   className="bottomMarginNav flexRow flexCenter whiteBackGround"
 />
 `;
+
+exports[`shoud renderd darkBackground 1`] = `
+<nav
+  className="bottomMarginNav flexRow flexCenter darkBackGround"
+/>
+`;
