@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import useInputHook from "../../customHooks/inputHook";
 
 const UserCotnroller = () => {
-  const [email, bindEmail, resetEmail] = useInputHook("");
-  const [password, bindPassword, resetPassword] = useInputHook("");
+  const [email, bindEmail, resetEmail] = useInputHook("", "email");
+  const [password, bindPassword, resetPassword] = useInputHook("", "password");
   const [login, bindName, resetName] = useInputHook("");
 
   const user = {
@@ -28,7 +28,7 @@ const UserCotnroller = () => {
       <input
         {...bindName}
         style={{ opacity: 1, width: "100px", height: "10px" }}
-        value={login}
+        // value={login}
       ></input>
       <br></br>
       <label>email</label>
