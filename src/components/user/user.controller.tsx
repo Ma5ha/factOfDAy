@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import useInputHook from "../../customHooks/inputHook";
+import { api } from "../../enviroment/api";
 
 const UserCotnroller = () => {
   const [email, bindEmail, resetEmail] = useInputHook("", "email");
