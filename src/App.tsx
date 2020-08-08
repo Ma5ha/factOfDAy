@@ -8,6 +8,7 @@ import "./styles/global.css";
 import QuoteController from "./components/quote/quoteContorller";
 import { flexColumn, autoMargin } from "./styles/style.var";
 import arrayToString from "./hellpers/arrayToString";
+import UserCotnroller from "./components/user/user.controller";
 
 function App() {
   const [, setTheme] = useState(getTheme);
@@ -19,6 +20,9 @@ function App() {
       </NavBar>
       <div className={autoMargin}>
         <QuoteController />
+      </div>
+      <div className={arrayToString([flexColumn, autoMargin, "spaceAround"])}>
+        <UserCotnroller />
       </div>
     </div>
   );
