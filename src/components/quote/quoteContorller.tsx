@@ -20,12 +20,17 @@ import "../../styles/global.css";
 import "./quoteStyle.css";
 import arrayToString from "../../hellpers/arrayToString";
 import Author from "./author";
+import { Heeaders } from "../../actions/authentictyHeaders";
 
 const QuoteController = () => {
   const [quoteState, setQuote] = useState<quote>();
 
   useLayoutEffect(() => {
-    getRequest<quote>(api.base + api.qotd, setQuote);
+    getRequest<quote>(
+      api.base + api.qotd,
+
+      setQuote
+    );
   }, []);
 
   if (quoteState)
