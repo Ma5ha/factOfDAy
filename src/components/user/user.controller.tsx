@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import useInputHook from "../../customHooks/inputHook";
 import { api } from "../../enviroment/api";
+import Login from "./login";
+import SignUp from "./signUp";
 
 const UserCotnroller = () => {
   const [email, bindEmail, resetEmail] = useInputHook("", "email");
@@ -12,7 +14,7 @@ const UserCotnroller = () => {
     password,
     email,
   };
-
+  const state = true;
   const resetForm = () => {
     // resetEmail();
     // resetPassword();
@@ -20,32 +22,37 @@ const UserCotnroller = () => {
   const handlleSubmit = (e) => {
     e.preventDefault();
 
-    resetForm();
+    console.log(user);
   };
 
   return (
     <form onSubmit={handlleSubmit}>
-      <label>Nanme</label>
-      <input
-        {...bindName}
-        style={{ opacity: 1, width: "100px", height: "10px" }}
-        // value={login}
-      ></input>
-      <br></br>
-      <label>email</label>
-      <input
-        {...bindEmail}
-        style={{ opacity: 1, width: "100px", height: "10px" }}
-        value={email}
-      ></input>
-      <br></br>
-      <label>Password</label>
-      <input
-        style={{ opacity: 1, width: "100px", height: "10px" }}
-        {...bindPassword}
-        value={password}
-      ></input>
-      <br></br>
+      <Login>
+        <label>Name</label>
+        <input
+          {...bindName}
+          style={{ opacity: 1, width: "100px", height: "10px" }}
+          // value={login}
+        ></input>
+        <br></br>
+        {state ? (
+          <SignUp>
+            <label>Email</label>
+            <input
+              {...bindEmail}
+              style={{ opacity: 1, width: "100px", height: "10px" }}
+            ></input>
+            <br></br>
+          </SignUp>
+        ) : null}
+
+        <label>Password</label>
+        <input
+          style={{ opacity: 1, width: "100px", height: "10px" }}
+          {...bindPassword}
+        ></input>
+        <br></br>
+      </Login>
 
       <button>Submit</button>
     </form>
