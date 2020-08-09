@@ -4,7 +4,6 @@
 }
 
 .flexCenter {
-  justify-content: flex-end;
   align-content: center;
 }
 
@@ -31,4 +30,8 @@
 
 .spaceAround {
   justify-content: space-around;
+}
+
+.spaceBetween {
+  justify-content: space-between;
 }
