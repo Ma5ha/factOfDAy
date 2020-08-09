@@ -42,31 +42,8 @@ const UserCotnroller = () => {
   return (
     <div style={{ margin: "auto" }}>
       <form onSubmit={handlleSubmit} style={{ margin: "auto" }}>
-        <Login>
-          <label>Name</label>
-          <input
-            {...bindName}
-            style={{ opacity: 1, width: "100px", height: "10px" }}
-            // value={login}
-          ></input>
-          <br></br>
-          {signup ? (
-            <SignUp>
-              <label>Email</label>
-              <input
-                {...bindEmail}
-                style={{ opacity: 1, width: "100px", height: "10px" }}
-              ></input>
-              <br></br>
-            </SignUp>
-          ) : null}
-
-          <label>Password</label>
-          <input
-            style={{ opacity: 1, width: "100px", height: "10px" }}
-            {...bindPassword}
-          ></input>
-          <br></br>
+        <Login name={bindName} password={bindPassword}>
+          {signup ? <SignUp email={bindEmail} /> : null}
         </Login>
 
         <button>Submit</button>
