@@ -3,6 +3,9 @@ import useInputHook from "../../customHooks/inputHook";
 import { api } from "../../enviroment/api";
 import Login from "./login";
 import SignUp from "./signUp";
+import postRequest from "../../actions/postRequest";
+import { Heeaders } from "../../actions/Headers";
+import saveToken from "./helpers/saveToken";
 
 const UserCotnroller = () => {
   const [email, bindEmail, resetEmail] = useInputHook("", "email");
@@ -20,8 +23,20 @@ const UserCotnroller = () => {
     resetPassword();
     resetName();
   };
+
+  const loginOrSignup = () => {
+    const signUp = api.signUp();
+    const session = api.login();
+
+    return signup ? signUp : session;
+  };
+
   const handlleSubmit = (e) => {
+    const url = loginOrSignup();
+    console.log(url, user);
     e.preventDefault();
+    postRequest(url, { user }, { headers: { ...Heeaders } }, saveToken);
+    resetForm();
   };
 
   return (

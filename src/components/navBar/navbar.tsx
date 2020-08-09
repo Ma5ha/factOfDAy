@@ -46,7 +46,7 @@ export default NavBar;
 
 const link = (array: string[], styles?) => {
   return array.map((link) => (
-    <Link className={styles} to={`/${link.toLowerCase()}`}>
+    <Link key={link} className={styles} to={`/${link.toLowerCase()}`}>
       {link}
     </Link>
   ));

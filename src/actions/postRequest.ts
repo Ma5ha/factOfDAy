@@ -7,5 +7,8 @@ async function postRequest<T>(
   callback?: (req?) => void
 ) {
   const request = await axios.post<T>(api, data, config);
-  callback(request.data);
+  if (callback) callback(request.data);
+  return;
 }
+
+export default postRequest;
