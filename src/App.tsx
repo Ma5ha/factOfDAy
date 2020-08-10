@@ -17,6 +17,7 @@ import {
 } from "react-router-dom";
 import HomePage from "./pages/home";
 import AuthPage from "./pages/authPage";
+import ProfilePage from "./pages/profilePage";
 function App() {
   const [, setTheme] = useState(getTheme);
 
@@ -35,6 +36,9 @@ function App() {
           </Route>
           <Route exact path="/Sign in">
             <AuthPage />
+          </Route>
+          <Route exact path="/Profile">
+            <ProfilePage></ProfilePage>
           </Route>
         </Switch>
       </div>

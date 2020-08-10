@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 import loggedIn from "../../hellpers/isLogged";
 
 const NavBar = ({ children }) => {
-  const links: string[] = ["Home", "Sign in"]; // maust start with capital letter
+  const links: string[] = ["Home", "Sign in", "Profile"]; // maust start with capital letter
   return (
     <nav
       className={arrayToString([

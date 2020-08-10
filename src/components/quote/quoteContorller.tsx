@@ -20,6 +20,7 @@ import "../../styles/global.css";
 import "./quoteStyle.css";
 import arrayToString from "../../hellpers/arrayToString";
 import Author from "./author";
+import { Heeaders } from "../../actions/Headers";
 
 const QuoteController = () => {
   const [quoteState, setQuote] = useState<quote>();
@@ -30,6 +31,17 @@ const QuoteController = () => {
 
       setQuote
     );
+  }, []);
+
+  useEffect(() => {
+    async function d() {
+      const result = await axios.get(
+        "https://favqs.com/api/quotes/?filter=Mark+Twain&type=author",
+        { headers: { ...Heeaders } }
+      );
+      console.log(result.data, "this");
+    }
+    d();
   }, []);
 
   if (quoteState)
