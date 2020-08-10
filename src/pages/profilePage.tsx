@@ -1,7 +1,8 @@
 import React from "react";
+import SearchBar from "../components/search/searchBar";
 
 const ProfilePage = () => {
-  return <h1>mashashsah</h1>;
+  return <SearchBar />;
 };
 
 export default ProfilePage;

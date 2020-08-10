@@ -15,6 +15,7 @@ import {
   flexCenter,
   flexColumn,
   autoMargin,
+  textCenter,
 } from "../../styles/style.var";
 import "../../styles/global.css";
 import "./quoteStyle.css";
@@ -55,8 +56,11 @@ const QuoteController = () => {
           "quoteBox",
         ])}
       >
-        <Quote quote={quoteState.quote} />
-        <Author quote={quoteState.quote} />
+        <div className={arrayToString([flexCenter, flexColumn])}>
+          <h1 className={textCenter}>Quote of Day</h1>
+          <Quote quote={quoteState.quote} />
+          <Author quote={quoteState.quote} />
+        </div>
       </div>
     );
   return <h1>Loading...</h1>;

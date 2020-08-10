@@ -10,12 +10,9 @@ import arrayToString from "../../hellpers/arrayToString";
 
 const Quote = ({ quote: { body } }) => {
   return (
-    <div className={arrayToString([flexCenter, flexColumn])}>
-      <h1 className={textCenter}>Quote of Day</h1>
-      <p className={textCenter}>
-        <i>&#8220;{body}&rdquo;</i>
-      </p>
-    </div>
+    <p className={textCenter}>
+      <i>&#8220;{body}&rdquo;</i>
+    </p>
   );
 };
 
