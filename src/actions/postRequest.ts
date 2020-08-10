@@ -4,11 +4,15 @@ async function postRequest<T>(
   api: string,
   data?: any,
   config?: any,
-  callback?: (req?) => void
+  succses?: (req?) => void,
+  error?: (err?) => void
 ) {
-  const request = await axios.post<T>(api, data, config);
-  if (callback) callback(request.data);
-  return;
+  try {
+    const request = await axios.post<T>(api, data, config);
+    if (succses) succses(request);
+  } catch (err) {
+    if (error) error(err);
+  }
 }
 
 export default postRequest;

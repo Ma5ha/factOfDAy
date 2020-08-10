@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import useInputHook from "../../customHooks/inputHook";
-import { api } from "../../enviroment/api";
+
 import Login from "./login";
 import SignUp from "./signUp";
 import postRequest from "../../actions/postRequest";
 import { Heeaders } from "../../actions/Headers";
 import saveToken from "./helpers/saveToken";
+import loginOrSignupUrl from "./helpers/loginSringupUrl";
+import loggedIn from "../../hellpers/isLogged";
 
 const UserCotnroller = () => {
   const [email, bindEmail, resetEmail] = useInputHook("", "email");
@@ -17,6 +19,7 @@ const UserCotnroller = () => {
     password,
     email,
   };
+  console.log(loggedIn());
 
   const resetForm = () => {
     resetEmail();
@@ -24,18 +27,20 @@ const UserCotnroller = () => {
     resetName();
   };
 
-  const loginOrSignup = () => {
-    const signUp = api.signUp();
-    const session = api.login();
-
-    return signup ? signUp : session;
-  };
-
   const handlleSubmit = (e) => {
-    const url = loginOrSignup();
-    console.log(url, user);
     e.preventDefault();
-    postRequest(url, { user }, { headers: { ...Heeaders } }, saveToken);
+    postRequest(
+      loginOrSignupUrl(signup),
+      { user },
+      { headers: { ...Heeaders } },
+      (req) => {
+        if (req.data.error_code) {
+          console.log(req.data.error_code);
+          return;
+        }
+        saveToken(req.data);
+      }
+    );
     resetForm();
   };
 

@@ -14,6 +14,7 @@ import {
 } from "../../styles/style.var";
 
 import { Link } from "react-router-dom";
+import loggedIn from "../../hellpers/isLogged";
 
 const NavBar = ({ children }) => {
   const links: string[] = ["Home", "Sign in"]; // maust start with capital letter
@@ -36,6 +37,7 @@ const NavBar = ({ children }) => {
         ])}
       >
         {link(links, arrayToString([]))}
+        {loggedIn() ? <h1>dam boi</h1> : null}
       </div>
       {children}
     </nav>
