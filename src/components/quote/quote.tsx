@@ -7,6 +7,7 @@ import {
   flexColumn,
 } from "../../styles/style.var";
 import arrayToString from "../../hellpers/arrayToString";
+import highlight from "../../hellpers/highlight";
 
 const Quote = ({ quote: { body } }) => {
   return (

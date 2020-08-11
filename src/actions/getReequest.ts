@@ -7,7 +7,6 @@ async function getRequest<T>(
 ) {
   const reslut = await axios.get<T>(api, config);
   callback(reslut.data);
-  console.log(reslut.data);
 }
 
 export default getRequest;

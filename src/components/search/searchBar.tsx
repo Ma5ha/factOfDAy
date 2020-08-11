@@ -23,15 +23,29 @@ import styleToggle from "../../hellpers/styleToggle";
 import inputFactory from "../../hellpers/inputFactory";
 import getRequest from "../../actions/getReequest";
 import Votes from "../quote/votes";
+import highlight from "../../hellpers/highlight";
 
 const SearchBar = () => {
   const [page, setPage] = useState<any>(0);
   const [result, setResult] = useState<any>(undefined);
-  const [searchTerm, search] = useInputHook("", "search", "Search quote");
+  const [filter, search] = useInputHook("", "search", "Search quote");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    getRequest(api.quotes(), setResult, { headers: { ...Heeaders } });
+    getRequest(
+      api.quotes(),
+      (res) => {
+        if (res) {
+          setResult(res);
+        }
+
+        return;
+      },
+      {
+        headers: { ...Heeaders },
+        params: { filter },
+      }
+    );
   };
 
   return (
@@ -58,7 +72,7 @@ const SearchBar = () => {
         ? result.quotes.map((res: Quot) => (
             <div key={res.id} className="fade-in-bottom">
               <Author quote={res} />
-              <Quote quote={res} />
+              <HiglihltedQuote quote={res} filter={filter} />
               <div className={arrayToString([flexRow, justifayCenter])}>
                 <Votes votes={res.downvotes_count}>Downvotes</Votes>
                 <div style={{ margin: "0 10px 0 10px" }}>
@@ -75,3 +89,11 @@ const SearchBar = () => {
 };
 
 export default SearchBar;
+
+const HiglihltedQuote = ({ quote: { body }, filter }) => {
+  return (
+    <p className={textCenter}>
+      <i>&#8220;{highlight(body, filter)}&rdquo;</i>
+    </p>
+  );
+};
