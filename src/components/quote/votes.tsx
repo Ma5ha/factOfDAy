@@ -1,4 +1,5 @@
 import React from "react";
+import { textCenter } from "../../styles/style.var";
 
 const Votes = ({ votes, children }) => {
   return (

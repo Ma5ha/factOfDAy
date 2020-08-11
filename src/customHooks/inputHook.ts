@@ -1,6 +1,10 @@
 import { useState } from "react";
 
-const useInputHook = (initValue, type: string = "text") => {
+const useInputHook = (
+  initValue,
+  type: string = "text",
+  placeholder?: string
+) => {
   const [value, setValue] = useState(initValue);
   const reset = () => {
     setValue(initValue);
@@ -8,6 +12,7 @@ const useInputHook = (initValue, type: string = "text") => {
   const bind = {
     type,
     value,
+    placeholder,
     onChange: (e) => {
       setValue(e.target.value);
     },

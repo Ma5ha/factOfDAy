@@ -14,21 +14,24 @@ import {
   autoMargin,
   flexCenter,
   spaceBetween,
+  justifayCenter,
 } from "../../styles/style.var";
 import arrayToString from "../../hellpers/arrayToString";
 import { Quote as Quot } from "../quote/quoteTypes";
 import "./shearchBar.css";
 import styleToggle from "../../hellpers/styleToggle";
 import inputFactory from "../../hellpers/inputFactory";
+import getRequest from "../../actions/getReequest";
+import Votes from "../quote/votes";
 
 const SearchBar = () => {
-  const [page, setPage] = useState<any>();
-  const [searchTerm, search] = useInputHook("Search", "search");
+  const [page, setPage] = useState<any>(0);
+  const [result, setResult] = useState<any>(undefined);
+  const [searchTerm, search] = useInputHook("", "search", "Search quote");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setPage("mashsahsah");
-    console.log("sasa");
+    getRequest(api.quotes(), setResult, { headers: { ...Heeaders } });
   };
 
   return (
@@ -44,27 +47,29 @@ const SearchBar = () => {
         <form onSubmit={handleSubmit}>
           <input
             {...inputFactory(
-              styleToggle("bigSearchBar", "smallSearchBar", page),
+              styleToggle("bigSearchBar", "smallSearchBar", result),
               search
             )}
           ></input>
         </form>
       </div>
 
-      {/* {result ? (
-        result.quotes.map((res: Quot) => (
-          <div key={res.id}>
-            <Quote quote={res} /> <Author quote={res} />
-            <div className={arrayToString([flexRow])}>
-              <Votes votes={res.downvotes_count}>Downvotes</Votes>
-              <Votes votes={res.upvotes_count}>Upvotes</Votes>
-              <Votes votes={res.favorites_count}>Favorite</Votes>
+      {result
+        ? result.quotes.map((res: Quot) => (
+            <div key={res.id} className="fade-in-bottom">
+              <Author quote={res} />
+              <Quote quote={res} />
+              <div className={arrayToString([flexRow, justifayCenter])}>
+                <Votes votes={res.downvotes_count}>Downvotes</Votes>
+                <div style={{ margin: "0 10px 0 10px" }}>
+                  <Votes votes={res.upvotes_count}>Upvotes</Votes>
+                </div>
+
+                <Votes votes={res.favorites_count}>Favorite</Votes>
+              </div>
             </div>
-          </div>
-        ))
-      ) : (
-        <p> nome</p>
-      )} */}
+          ))
+        : null}
     </div>
   );
 };

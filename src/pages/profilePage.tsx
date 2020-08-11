@@ -7,7 +7,7 @@ const ProfilePage = () => {
       <div className="main">
         <SearchBar />
       </div>
-      <div className="sidebar">sidebar</div>
+      <div className="sidebar">sidebar</div>.
     </div>
   );
 };
