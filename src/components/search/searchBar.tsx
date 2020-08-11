@@ -17,47 +17,41 @@ import {
 } from "../../styles/style.var";
 import arrayToString from "../../hellpers/arrayToString";
 import { Quote as Quot } from "../quote/quoteTypes";
+import "./shearchBar.css";
+import styleToggle from "../../hellpers/styleToggle";
+import inputFactory from "../../hellpers/inputFactory";
+
 const SearchBar = () => {
-  const [page, setPage] = useState<number>(1);
-  const [searchTerm, searchBar] = useInputHook("", "search");
-  const [result, setResult] = useState<any>();
-  const [filter, setFilter] = useState("");
-
-  useEffect(() => {
-    async function getQuotes() {
-      const result = await axios.get<Quot[]>(api.quotes(), {
-        params: { page, filter },
-
-        headers: { ...Heeaders },
-      });
-
-      setResult(result.data);
-    }
-
-    getQuotes();
-  }, [filter, page]);
+  const [page, setPage] = useState<any>();
+  const [searchTerm, search] = useInputHook("Search", "search");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFilter(searchTerm);
-    setPage(1);
+    setPage("mashsahsah");
+    console.log("sasa");
   };
 
   return (
     <div className={arrayToString([flexColumn, spaceAround])}>
-      <div className={arrayToString([flexRow, spaceAround])}>
+      <div
+        className={arrayToString([
+          flexRow,
+          spaceAround,
+          flexCenter,
+          "fullHegiht",
+        ])}
+      >
         <form onSubmit={handleSubmit}>
-          <label>Search Bar</label>
           <input
-            {...searchBar}
-            style={{ opacity: 1, width: "100px", height: "10px" }}
+            {...inputFactory(
+              styleToggle("bigSearchBar", "smallSearchBar", page),
+              search
+            )}
           ></input>
-          <button>Submit</button>
         </form>
       </div>
-      <button onClick={() => setPage(page + 1)}>click me</button>
 
-      {result ? (
+      {/* {result ? (
         result.quotes.map((res: Quot) => (
           <div key={res.id}>
             <Quote quote={res} /> <Author quote={res} />
@@ -70,17 +64,9 @@ const SearchBar = () => {
         ))
       ) : (
         <p> nome</p>
-      )}
+      )} */}
     </div>
   );
 };
 
 export default SearchBar;
-
-const Votes = ({ votes, children }) => {
-  return (
-    <h6 className={textCenter}>
-      {children} {votes}
-    </h6>
-  );
-};

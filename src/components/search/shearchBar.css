@@ -1,0 +1,21 @@
+.smallSearchBar {
+    width: 200px;
+    margin: 0px;
+    text-align: center;
+    border: solid;
+    color: black;
+    opacity: 1;
+    transition: all 2s;
+    height: 40px;
+}
+
+.bigSearchBar {
+    height: 40px;
+    width: 700px;
+    margin: 30vh;
+    text-align: center;
+    border: solid;
+    color: black;
+    opacity: 1;
+    transition: all 2s;
+}

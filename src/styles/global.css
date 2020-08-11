@@ -35,3 +35,16 @@
 .spaceBetween {
   justify-content: space-between;
 }
+
+.profilPageTemplate {
+  display: grid;
+  grid-template-areas: "sidbar main main .";
+}
+
+.main {
+  grid-area: main;
+}
+
+.sidbar {
+  grid-area: sidebar;
+}
