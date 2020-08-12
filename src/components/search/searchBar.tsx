@@ -23,23 +23,37 @@ const SearchBar = () => {
   const [page, setPage] = useState<any>(0);
   const [result, setResult] = useState<any>(undefined);
   const [filter, search] = useInputHook("", "search", "Search quote");
+  const [tags, setTags] = useState<any>();
+  const [authors, setAuthors] = useState<any>();
+
+  const Config = {
+    headers: { ...Heeaders },
+    params: { filter },
+  };
+
+  const quotesCallback = (arg) => {
+    if (arg) {
+      setResult(arg);
+    }
+
+    return;
+  };
+
+  const typeheadCallback = (arg) => {
+    console.log(arg);
+  };
+  const getQuotes = () => {
+    getRequest(api.quotes(), quotesCallback, Config);
+  };
+
+  const getTypehead = () => {
+    getRequest(api.typehead(), typeheadCallback, Config);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    getRequest(
-      api.quotes(),
-      (res) => {
-        if (res) {
-          setResult(res);
-        }
-
-        return;
-      },
-      {
-        headers: { ...Heeaders },
-        params: { filter },
-      }
-    );
+    getQuotes();
+    getTypehead();
   };
 
   return (
