@@ -5,5 +5,5 @@ export const api = {
   signUp: () => api.base + "users",
   login: () => api.base + "session",
   quotes: () => api.base + "quotes",
-  typehead: () => api.base + "typehead",
+  typehead: () => api.base + "typeahead",
 };

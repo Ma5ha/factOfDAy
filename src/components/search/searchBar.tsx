@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import useInputHook from "../../customHooks/inputHook";
-import getRequest from "../../actions/getReequest";
-import { api } from "../../enviroment/api";
-import { Heeaders } from "../../actions/Headers";
+
 import arrayToString from "../../hellpers/arrayToString";
 import {
   flexColumn,
@@ -19,43 +16,7 @@ import Votes from "../quote/votes";
 import { Quote as Quot } from "../quote/quoteTypes";
 import "./shearchBar.css";
 
-const SearchBar = () => {
-  const [page, setPage] = useState<any>(0);
-  const [result, setResult] = useState<any>(undefined);
-  const [filter, search] = useInputHook("", "search", "Search quote");
-  const [tags, setTags] = useState<any>();
-  const [authors, setAuthors] = useState<any>();
-
-  const Config = {
-    headers: { ...Heeaders },
-    params: { filter },
-  };
-
-  const quotesCallback = (arg) => {
-    if (arg) {
-      setResult(arg);
-    }
-
-    return;
-  };
-
-  const typeheadCallback = (arg) => {
-    console.log(arg);
-  };
-  const getQuotes = () => {
-    getRequest(api.quotes(), quotesCallback, Config);
-  };
-
-  const getTypehead = () => {
-    getRequest(api.typehead(), typeheadCallback, Config);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    getQuotes();
-    getTypehead();
-  };
-
+const SearchBar = ({ handleSubmit, search, result, filter }) => {
   return (
     <div className={arrayToString([flexColumn, spaceAround])}>
       <div
