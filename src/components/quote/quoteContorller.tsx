@@ -40,7 +40,6 @@ const QuoteController = () => {
         "https://favqs.com/api/quotes/?filter=Mark+Twain&type=author",
         { headers: { ...Heeaders } }
       );
-      console.log(result.data, "this");
     }
     d();
   }, []);
@@ -58,7 +57,7 @@ const QuoteController = () => {
       >
         <div className={arrayToString([flexCenter, flexColumn])}>
           <h1 className={textCenter}>Quote of Day</h1>
-          <Quote quote={quoteState.quote} />
+          <Quote quote={[quoteState.quote, ""]} />
           <Author quote={quoteState.quote} />
         </div>
       </div>

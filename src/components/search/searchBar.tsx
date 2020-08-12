@@ -1,29 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import useInputHook from "../../customHooks/inputHook";
-
-import axios from "axios";
+import getRequest from "../../actions/getReequest";
 import { api } from "../../enviroment/api";
 import { Heeaders } from "../../actions/Headers";
-import Quote from "../quote/quote";
-import Author from "../quote/author";
+import arrayToString from "../../hellpers/arrayToString";
 import {
-  textCenter,
-  flexRow,
-  spaceAround,
   flexColumn,
-  autoMargin,
+  spaceAround,
+  flexRow,
   flexCenter,
-  spaceBetween,
   justifayCenter,
 } from "../../styles/style.var";
-import arrayToString from "../../hellpers/arrayToString";
+import inputFactory from "../../hellpers/inputFactory";
+import styleToggle from "../../hellpers/styleToggle";
+import Author from "../quote/author";
+import Quote from "../quote/quote";
+import Votes from "../quote/votes";
 import { Quote as Quot } from "../quote/quoteTypes";
 import "./shearchBar.css";
-import styleToggle from "../../hellpers/styleToggle";
-import inputFactory from "../../hellpers/inputFactory";
-import getRequest from "../../actions/getReequest";
-import Votes from "../quote/votes";
-import highlight from "../../hellpers/highlight";
 
 const SearchBar = () => {
   const [page, setPage] = useState<any>(0);
@@ -72,7 +66,7 @@ const SearchBar = () => {
         ? result.quotes.map((res: Quot) => (
             <div key={res.id} className="fade-in-bottom">
               <Author quote={res} />
-              <HiglihltedQuote quote={res} filter={filter} />
+              <Quote quote={[res, filter]} />
               <div className={arrayToString([flexRow, justifayCenter])}>
                 <Votes votes={res.downvotes_count}>Downvotes</Votes>
                 <div style={{ margin: "0 10px 0 10px" }}>
@@ -89,11 +83,3 @@ const SearchBar = () => {
 };
 
 export default SearchBar;
-
-const HiglihltedQuote = ({ quote: { body }, filter }) => {
-  return (
-    <p className={textCenter}>
-      <i>&#8220;{highlight(body, filter)}&rdquo;</i>
-    </p>
-  );
-};
