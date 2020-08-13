@@ -1,4 +1,4 @@
-const filter = (string, filter, obj) => {
+const filterAuthor = (string, filter, obj) => {
   const array = arrayMy(string);
   if (
     array.some((x) => {
