@@ -38,7 +38,7 @@
 
 .profilPageTemplate {
   display: grid;
-  grid-template-areas: "sidbar main  .";
+  grid-template-areas: "authors main  tags";
   grid-template-columns: 25% 50% 25%;
 }
 
@@ -46,8 +46,12 @@
   grid-area: main;
 }
 
-.sidbar {
-  grid-area: sidebar;
+.authors {
+  grid-area: authors;
+}
+
+.tags {
+  grid-area: tags;
 }
 
 .justifayCenter {
@@ -100,4 +104,15 @@
 
 .tags {
   padding: 5%;
+}
+
+.round {
+  border-radius: 200px 200px 200px 200px;
+}
+
+.freeMargin {
+  border: none;
+  background: inherit;
+  outline: none;
+  cursor: pointer;
 }
