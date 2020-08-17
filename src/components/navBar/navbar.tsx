@@ -17,7 +17,8 @@ import { Link } from "react-router-dom";
 import loggedIn from "../../hellpers/isLogged";
 
 const NavBar = ({ children }) => {
-  const links: string[] = ["Home", "Sign in", "Profile"]; // maust start with capital letter
+  const links: string[] = ["Home", "Sign in"]; // maust start with capital letter
+  const protectedRoutes: string[] = ["Profile"];
   return (
     <nav
       className={arrayToString([
@@ -37,7 +38,7 @@ const NavBar = ({ children }) => {
         ])}
       >
         {link(links, arrayToString([]))}
-        {loggedIn() ? <h1>dam boi</h1> : null}
+        {loggedIn() ? link(protectedRoutes) : null}
       </div>
       {children}
     </nav>
