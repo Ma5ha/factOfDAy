@@ -1,0 +1,15 @@
+input {
+    opacity: 1;
+    width: 500px;
+    height: 20px;
+    text-align: center;
+}
+
+form {
+    text-align: center;
+}
+
+button {
+    margin: auto;
+    border-radius: 200px;
+}

@@ -17,7 +17,7 @@ import {
 } from "react-router-dom";
 import HomePage from "./pages/home";
 import AuthPage from "./pages/authPage";
-import ProfilePage from "./pages/profilePage";
+
 import PrivateRoute from "./components/privateRoute/privateRoute";
 function App() {
   const [, setTheme] = useState(getTheme);

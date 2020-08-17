@@ -4,18 +4,17 @@ const Login = ({ children, name, password }) => {
   return (
     <>
       <label>Name</label>
+      <br></br>
       <input
         {...name}
-        style={{ opacity: 1, width: "100px", height: "10px" }}
+
         // value={login}
       ></input>
       <br></br>
       {children}
       <label>Password</label>
-      <input
-        style={{ opacity: 1, width: "100px", height: "10px" }}
-        {...password}
-      ></input>
+      <br></br>
+      <input {...password}></input>
       <br></br>
     </>
   );

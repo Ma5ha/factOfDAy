@@ -58,8 +58,8 @@ const ProfilePage = () => {
       {user ? <UserName user={user} /> : null}
       {user ? <Image user={user} /> : null}
       {user ? <Email user={user} /> : null}
-      {user ? <Counter follow={user.followers} type={"followers"} /> : null}
-      {user ? <Counter follow={user.following} type={"following"} /> : null}
+      {user ? <Counter follow={user?.followers} type={"followers"} /> : null}
+      {user ? <Counter follow={user?.following} type={"following"} /> : null}
       {user ? (
         <Counter
           follow={user.account_details.private_favorites_count}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useInputHook from "../../customHooks/inputHook";
-
+import "./user.css";
 import Login from "./login";
 import SignUp from "./signUp";
 import postRequest from "../../actions/postRequest";
@@ -12,9 +12,17 @@ import { useHistory } from "react-router-dom";
 
 const UserCotnroller = () => {
   const history = useHistory();
-  const [email, bindEmail, resetEmail] = useInputHook("", "email");
-  const [password, bindPassword, resetPassword] = useInputHook("", "password");
-  const [login, bindName, resetName] = useInputHook("");
+  const [email, bindEmail, resetEmail] = useInputHook(
+    "email",
+    "email",
+    "Enter email here"
+  );
+  const [password, bindPassword, resetPassword] = useInputHook(
+    "",
+    "password",
+    "Enter password here"
+  );
+  const [login, bindName, resetName] = useInputHook("", "", "Enter name here");
   const [signup, setSignup] = useState<boolean>(false);
   const user = {
     login,
@@ -54,8 +62,7 @@ const UserCotnroller = () => {
         <Login name={bindName} password={bindPassword}>
           {signup ? <SignUp email={bindEmail} /> : null}
         </Login>
-
-        <button>Submit</button>
+        <button>Submit</button> <br></br>
       </form>
 
       {signup ? (
