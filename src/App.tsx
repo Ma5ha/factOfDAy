@@ -18,6 +18,7 @@ import {
 import HomePage from "./pages/home";
 import AuthPage from "./pages/authPage";
 import ProfilePage from "./pages/profilePage";
+import PrivateRoute from "./components/privateRoute/privateRoute";
 function App() {
   const [, setTheme] = useState(getTheme);
 
@@ -38,7 +39,7 @@ function App() {
             <AuthPage />
           </Route>
           <Route exact path="/Profile">
-            <ProfilePage></ProfilePage>
+            <PrivateRoute></PrivateRoute>
           </Route>
         </Switch>
       </div>

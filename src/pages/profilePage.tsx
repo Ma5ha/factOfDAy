@@ -50,7 +50,7 @@ const ProfilePage = () => {
   const getActivitys = () => {
     getRequest(api.base + "activities", console.log, config);
   };
-  return (
+  return user ? (
     <>
       {user ? <UserName user={user} /> : null}
       {user ? <Image user={user} /> : null}
@@ -65,6 +65,8 @@ const ProfilePage = () => {
       ) : null}
       {user ? <button onClick={handlleLogOut}>Log Out</button> : null}
     </>
+  ) : (
+    <h1> loading</h1>
   );
 };
 export default ProfilePage;
