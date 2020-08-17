@@ -27,10 +27,6 @@ const UserCotnroller = () => {
     resetName();
   };
 
-  const getToken = () => {
-    const to = token();
-    console.log(to);
-  };
   const handlleSubmit = (e) => {
     e.preventDefault();
     postRequest(
@@ -63,8 +59,6 @@ const UserCotnroller = () => {
       ) : (
         <button onClick={() => setSignup(!signup)}>SignUp</button>
       )}
-
-      <button onClick={getToken}>token</button>
     </div>
   );
 };
