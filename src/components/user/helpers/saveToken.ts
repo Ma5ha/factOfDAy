@@ -1,9 +1,5 @@
-const saveToken = (arg: {
-  ["User-token"]: string;
-  login: string;
-  email: string;
-}) => {
-  sessionStorage.setItem("User-token", JSON.stringify(arg));
+const saveToken = (arg: { ["User-Token"]: string }) => {
+  sessionStorage.setItem("User-Token", JSON.stringify(arg));
 };
 
 export default saveToken;

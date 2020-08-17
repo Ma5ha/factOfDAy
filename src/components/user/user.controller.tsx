@@ -8,6 +8,7 @@ import { Heeaders } from "../../actions/Headers";
 import saveToken from "./helpers/saveToken";
 import loginOrSignupUrl from "./helpers/loginSringupUrl";
 import loggedIn from "../../hellpers/isLogged";
+import token from "../../hellpers/token";
 
 const UserCotnroller = () => {
   const [email, bindEmail, resetEmail] = useInputHook("", "email");
@@ -19,7 +20,6 @@ const UserCotnroller = () => {
     password,
     email,
   };
-  console.log(loggedIn());
 
   const resetForm = () => {
     resetEmail();
@@ -27,6 +27,10 @@ const UserCotnroller = () => {
     resetName();
   };
 
+  const getToken = () => {
+    const to = token();
+    console.log(to);
+  };
   const handlleSubmit = (e) => {
     e.preventDefault();
     postRequest(
@@ -35,10 +39,10 @@ const UserCotnroller = () => {
       { headers: { ...Heeaders } },
       (req) => {
         if (req.data.error_code) {
-          console.log(req.data.error_code);
           return;
         }
-        saveToken(req.data);
+        console.log(req.data);
+        saveToken(req.data["User-Token"]);
       }
     );
     resetForm();
@@ -59,6 +63,8 @@ const UserCotnroller = () => {
       ) : (
         <button onClick={() => setSignup(!signup)}>SignUp</button>
       )}
+
+      <button onClick={getToken}>token</button>
     </div>
   );
 };
