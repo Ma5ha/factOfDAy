@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import getRequest from "../actions/getReequest";
 import { api } from "../enviroment/api";
 import { Heeaders } from "../actions/Headers";
@@ -42,17 +42,16 @@ const ProfilePage = () => {
     console.log(x);
     setUser(x);
   };
-  const getUser = () => {
+
+  useEffect(() => {
     getRequest(api.signUp(), callBack, config);
-    getActivitys();
-  };
+  }, []);
 
   const getActivitys = () => {
     getRequest(api.base + "activities", console.log, config);
   };
   return (
     <>
-      <button onClick={getUser}>get user</button>
       {user ? <UserName user={user} /> : null}
       {user ? <Image user={user} /> : null}
       {user ? <Email user={user} /> : null}
