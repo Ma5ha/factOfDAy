@@ -7,10 +7,11 @@ import postRequest from "../../actions/postRequest";
 import { Heeaders } from "../../actions/Headers";
 import saveToken from "./helpers/saveToken";
 import loginOrSignupUrl from "./helpers/loginSringupUrl";
-import loggedIn from "../../hellpers/isLogged";
-import token from "../../hellpers/token";
+import { loggedIn } from "../../hellpers/isLogged";
+import { useHistory } from "react-router-dom";
 
 const UserCotnroller = () => {
+  const history = useHistory();
   const [email, bindEmail, resetEmail] = useInputHook("", "email");
   const [password, bindPassword, resetPassword] = useInputHook("", "password");
   const [login, bindName, resetName] = useInputHook("");
@@ -37,8 +38,11 @@ const UserCotnroller = () => {
         if (req.data.error_code) {
           return;
         }
-        console.log(req.data);
+
         saveToken(req.data["User-Token"]);
+        if (loggedIn()) {
+          history.push("/profile");
+        }
       }
     );
     resetForm();
