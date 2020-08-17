@@ -4,7 +4,10 @@ import { api } from "../enviroment/api";
 import { Heeaders } from "../actions/Headers";
 import { useHistory } from "react-router-dom";
 import deleteRequest from "../actions/deleteRequest";
-
+import UserName from "../components/profile/userName";
+import Email from "../components/profile/email";
+import Counter from "../components/profile/counter";
+import Image from "../components/profile/image";
 export interface User {
   login: string;
   pic_url: string;
@@ -70,27 +73,3 @@ const ProfilePage = () => {
   );
 };
 export default ProfilePage;
-
-const UserName = ({ user: { login } }) => {
-  return <h4>User:{login}</h4>;
-};
-
-const Image = ({ user: { pic_url } }) => {
-  return <img width="20px" src={pic_url} alt="user pic"></img>;
-};
-
-const Email = ({
-  user: {
-    account_details: { email },
-  },
-}) => {
-  return <div>Email: {email}</div>;
-};
-
-const Counter = ({ follow, type }) => {
-  return (
-    <div>
-      {type}: {follow}
-    </div>
-  );
-};
