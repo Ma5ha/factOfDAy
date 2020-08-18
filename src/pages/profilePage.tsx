@@ -46,7 +46,7 @@ const ProfilePage = () => {
   // );
 
   return (
-    <div>
+    <div className="darkSeconBackground">
       {user ? <UserName user={user} /> : null}
       {user ? <Image user={user} /> : null}
       {user ? <Email user={user} /> : null}

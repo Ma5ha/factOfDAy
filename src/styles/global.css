@@ -1,3 +1,5 @@
+/* dark theme color palete https://colorhunt.co/palette/2763 */
+
 .flexRow {
   display: flex;
   flex-direction: row;
@@ -115,4 +117,8 @@
   background: inherit;
   outline: none;
   cursor: pointer;
+}
+
+.darkSeconBackground {
+  background-color: #3e432e;
 }
