@@ -18,6 +18,7 @@ const ToggleButton = ({ data }) => {
     <div className={flexRow}>
       <label className={arrayToString([autoMargin, "round "])}>
         <input
+          className="slider"
           type="checkbox"
           onClick={toggle}
           checked={isChecked()}

@@ -21,7 +21,7 @@ const NavBar = ({ children }) => {
   const links: string[] = ["Home", "Sign in"]; // maust start with capital letter
   const protectedRoutes: string[] = ["Profile"];
   const loggedin = useContext(isLoggedin);
-  console.log(loggedin.user);
+
   return (
     <nav
       className={arrayToString([
