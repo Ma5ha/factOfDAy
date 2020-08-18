@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import useInputHook from "../../customHooks/inputHook";
 import "./user.css";
 import Login from "./login";
@@ -9,8 +9,10 @@ import saveToken from "./helpers/saveToken";
 import loginOrSignupUrl from "./helpers/loginSringupUrl";
 import { loggedIn } from "../../hellpers/isLogged";
 import { useHistory } from "react-router-dom";
+import isLoggedin from "../../context/login";
 
 const UserCotnroller = () => {
+  const logged = useContext(isLoggedin);
   const history = useHistory();
   const [email, bindEmail, resetEmail] = useInputHook(
     "email",
@@ -50,10 +52,13 @@ const UserCotnroller = () => {
         saveToken(req.data["User-Token"]);
         if (loggedIn()) {
           history.push("/profile");
+          logged.set();
         }
       }
     );
     resetForm();
+
+    console.log(logged.user);
   };
 
   return (

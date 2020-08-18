@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import getRequest from "../actions/getReequest";
 import { api } from "../enviroment/api";
 import { Heeaders } from "../actions/Headers";
@@ -8,6 +8,7 @@ import UserName from "../components/profile/userName";
 import Email from "../components/profile/email";
 import Counter from "../components/profile/counter";
 import Image from "../components/profile/image";
+import isLoggedin from "../context/login";
 export interface User {
   login: string;
   pic_url: string;
@@ -25,6 +26,7 @@ export interface AccountDetails {
 }
 
 const ProfilePage = () => {
+  const log = useContext(isLoggedin);
   const history = useHistory();
   const [user, setUser] = useState<User>();
 
@@ -39,6 +41,7 @@ const ProfilePage = () => {
     sessionStorage.removeItem("User-Token");
     history.push("/home");
     deleteRequest(api.login());
+    log.set();
   };
 
   const callBack = (x) => {

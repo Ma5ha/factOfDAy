@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./navbar.css";
 import themeStyle from "../../hellpers/theme";
 import arrayToString from "../../hellpers/arrayToString";
@@ -15,10 +15,13 @@ import {
 
 import { Link } from "react-router-dom";
 import loggedIn from "../../hellpers/isLogged";
+import isLoggedin from "../../context/login";
 
 const NavBar = ({ children }) => {
   const links: string[] = ["Home", "Sign in"]; // maust start with capital letter
   const protectedRoutes: string[] = ["Profile"];
+  const loggedin = useContext(isLoggedin);
+  console.log(loggedin.user);
   return (
     <nav
       className={arrayToString([
@@ -38,7 +41,7 @@ const NavBar = ({ children }) => {
         ])}
       >
         {link(links, arrayToString([]))}
-        {loggedIn() ? link(protectedRoutes) : null}
+        {loggedin.user ? link(protectedRoutes) : null}
       </div>
       {children}
     </nav>
