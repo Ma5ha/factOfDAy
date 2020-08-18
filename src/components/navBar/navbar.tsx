@@ -16,6 +16,7 @@ import {
 import { Link } from "react-router-dom";
 import loggedIn from "../../hellpers/isLogged";
 import isLoggedin from "../../context/login";
+import styler from "../../hellpers/styler";
 
 const NavBar = ({ children }) => {
   const links: string[] = ["Home", "Sign in"]; // maust start with capital letter
@@ -24,12 +25,15 @@ const NavBar = ({ children }) => {
 
   return (
     <nav
+      style={{ marginBottom: "0px" }}
       className={arrayToString([
+        "solidBottomBorder",
         "bottomMarginNav",
         spaceBetween,
         flexRow,
         flexCenter,
-        ...themeStyle(["BackGround"]),
+
+        ...themeStyle(["BackGround", "Border"]),
       ])}
     >
       <div
@@ -40,8 +44,10 @@ const NavBar = ({ children }) => {
           textCenter,
         ])}
       >
-        {link(links, arrayToString([]))}
-        {loggedin.user ? link(protectedRoutes) : null}
+        {link(links, styler(["ThirdColor"]))}
+        {loggedin.user
+          ? link(protectedRoutes, ...themeStyle(["ThirdColor"]))
+          : null}
       </div>
       {children}
     </nav>

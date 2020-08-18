@@ -1,11 +1,13 @@
 import React from "react";
 
+import themeStyle from "../../hellpers/theme";
+
 const SignUp = ({ email }) => {
   return (
     <>
       <label>Email</label>
       <br></br>
-      <input {...email}></input>
+      <input className={themeStyle(["Input"])} {...email}></input>
       <br></br>
     </>
   );

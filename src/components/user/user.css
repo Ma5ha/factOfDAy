@@ -13,3 +13,17 @@ button {
     margin: auto;
     border-radius: 200px;
 }
+
+.darkInput {
+    border: solid #00adb5;
+    background-color: black;
+    color: #00adb5;
+    transition: all 2s;
+}
+
+.darkButton {
+    background-color: black;
+    color: #00adb5;
+    border: solid #00adb5;
+    transition: all 2s;
+}

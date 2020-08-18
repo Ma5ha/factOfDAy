@@ -21,6 +21,7 @@ import AuthPage from "./pages/authPage";
 import PrivateRoute from "./components/privateRoute/privateRoute";
 import { loggedIn } from "./hellpers/isLogged";
 import isLoggedin from "./context/login";
+import themeStyle from "./hellpers/theme";
 function App() {
   const [, setTheme] = useState(getTheme);
   const [user, setUser] = useState(loggedIn());
@@ -37,7 +38,15 @@ function App() {
         <NavBar>
           <ToggleButton data={setTheme} />
         </NavBar>
-        <div className={arrayToString([flexColumn, flexCenter, autoMargin])}>
+        <div
+          className={arrayToString([
+            flexColumn,
+            flexCenter,
+            autoMargin,
+            "fullPage",
+            ...themeStyle(["SeconBackground"]),
+          ])}
+        >
           <Switch>
             <Route exact path="/">
               <Redirect to="/Home" />

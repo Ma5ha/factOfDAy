@@ -10,13 +10,16 @@ import loginOrSignupUrl from "./helpers/loginSringupUrl";
 import { loggedIn } from "../../hellpers/isLogged";
 import { useHistory } from "react-router-dom";
 import isLoggedin from "../../context/login";
+import themeStyle from "../../hellpers/theme";
+import styler from "../../hellpers/styler";
 
 const UserCotnroller = () => {
+  const buttonStyle = ["Button"];
   const logged = useContext(isLoggedin);
   const history = useHistory();
   const [email, bindEmail, resetEmail] = useInputHook(
-    "email",
-    "email",
+    "",
+    "",
     "Enter email here"
   );
   const [password, bindPassword, resetPassword] = useInputHook(
@@ -67,13 +70,23 @@ const UserCotnroller = () => {
         <Login name={bindName} password={bindPassword}>
           {signup ? <SignUp email={bindEmail} /> : null}
         </Login>
-        <button>Submit</button> <br></br>
+        <button className={styler(buttonStyle)}>Submit</button> <br></br>
       </form>
 
       {signup ? (
-        <button onClick={() => setSignup(!signup)}>Login</button>
+        <button
+          onClick={() => setSignup(!signup)}
+          className={styler(buttonStyle)}
+        >
+          Login
+        </button>
       ) : (
-        <button onClick={() => setSignup(!signup)}>SignUp</button>
+        <button
+          onClick={() => setSignup(!signup)}
+          className={styler(buttonStyle)}
+        >
+          SignUp
+        </button>
       )}
     </div>
   );

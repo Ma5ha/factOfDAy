@@ -1,4 +1,5 @@
 import React from "react";
+import themeStyle from "../../hellpers/theme";
 
 const Login = ({ children, name, password }) => {
   return (
@@ -6,6 +7,7 @@ const Login = ({ children, name, password }) => {
       <label>Name</label>
       <br></br>
       <input
+        className={themeStyle(["Input"])}
         {...name}
 
         // value={login}
@@ -14,7 +16,7 @@ const Login = ({ children, name, password }) => {
       {children}
       <label>Password</label>
       <br></br>
-      <input {...password}></input>
+      <input className={themeStyle(["Input"])} {...password}></input>
       <br></br>
     </>
   );
