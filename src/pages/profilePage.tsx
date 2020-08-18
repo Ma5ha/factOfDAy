@@ -38,9 +38,10 @@ const ProfilePage = () => {
   };
 
   const handlleLogOut = () => {
+    deleteRequest(api.login(), config);
     sessionStorage.removeItem("User-Token");
     history.push("/home");
-    deleteRequest(api.login());
+
     log.set();
   };
 
@@ -53,9 +54,6 @@ const ProfilePage = () => {
     getRequest(api.signUp(), callBack, config);
   }, []);
 
-  const getActivitys = () => {
-    getRequest(api.base + "activities", console.log, config);
-  };
   return user ? (
     <>
       {user ? <UserName user={user} /> : null}
@@ -65,7 +63,7 @@ const ProfilePage = () => {
       {user ? <Counter follow={user?.following} type={"following"} /> : null}
       {user ? (
         <Counter
-          follow={user.account_details.private_favorites_count}
+          follow={user.account_details?.private_favorites_count}
           type={"Private favorites"}
         />
       ) : null}
