@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import User from "../types/user";
 import getRequest from "../actions/getReequest";
 import { api } from "../enviroment/api";
 import { Heeaders } from "../actions/Headers";
@@ -9,32 +10,14 @@ import Email from "../components/profile/email";
 import Counter from "../components/profile/counter";
 import Image from "../components/profile/image";
 import isLoggedin from "../context/login";
-export interface User {
-  login: string;
-  pic_url: string;
-  public_favorites_count: number;
-  followers: number;
-  following: number;
-  pro: boolean;
-  account_details: AccountDetails;
-}
-export interface AccountDetails {
-  email: string;
-  private_favorites_count: number;
-  active_theme_id: number;
-  pro_expiration: string;
-}
 
 const ProfilePage = () => {
   const log = useContext(isLoggedin);
   const history = useHistory();
-  const [user, setUser] = useState<User>();
+  const [user, setUser] = useState<User | undefined>();
 
   const config = {
     headers: { ...Heeaders },
-    params: {
-      filter: "gose",
-    },
   };
 
   const handlleLogOut = () => {
