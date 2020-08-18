@@ -54,8 +54,16 @@ const ProfilePage = () => {
     getRequest(api.signUp(), callBack, config);
   }, []);
 
-  return user ? (
-    <>
+  // return user ? (
+  //   <>
+
+  //   </>
+  // ) : (
+  //   <h1> loading</h1>
+  // );
+
+  return (
+    <div>
       {user ? <UserName user={user} /> : null}
       {user ? <Image user={user} /> : null}
       {user ? <Email user={user} /> : null}
@@ -68,9 +76,7 @@ const ProfilePage = () => {
         />
       ) : null}
       {user ? <button onClick={handlleLogOut}>Log Out</button> : null}
-    </>
-  ) : (
-    <h1> loading</h1>
+    </div>
   );
 };
 export default ProfilePage;
