@@ -13,7 +13,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgb(238, 223, 223);
+  background-color: #163172;
   -webkit-transition: 0.6s;
   transition: 0.6s;
 }
@@ -32,21 +32,21 @@ input.slider {
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: black;
+  background-color: #d6e4f0;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
-input:checked+.slider {
+input:checked + .slider {
   border-radius: 200px 200px 200px 200px;
-  background-color: #393e46
+  background-color: #393e46;
 }
 
-input:focus+.slider {
-  box-shadow: 0 0 1px #393e46
+input:focus + .slider {
+  box-shadow: 0 0 1px #393e46;
 }
 
-input:checked+.slider:before {
+input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);

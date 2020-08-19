@@ -1,15 +1,15 @@
 .whiteBackGround {
-    background-color: blue;
-    height: 100px;
-    transition: background-color 6s;
-    transition-duration: 5s;
+  background-color: #f6f6f6;
+  height: 100px;
+  transition: background-color 6s;
+  transition-duration: 5s;
 }
 
 .darkBackGround {
-    background-color: #222831;
-    height: 100px;
-    transition: background-color 6s;
-    transition-duration: 5s;
+  background-color: #222831;
+  height: 100px;
+  transition: background-color 6s;
+  transition-duration: 5s;
 }
 
 /* .whiteBackGround:hover {
@@ -20,20 +20,24 @@
 } */
 
 .tranistion {
-    background-color: inherit;
+  background-color: inherit;
 }
 
 .bottomMarginNav {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 a {
-    color: aliceblue;
-    margin: auto;
-    margin-left: 10px;
-    text-decoration: none;
+  color: aliceblue;
+  margin: auto;
+  margin-left: 10px;
+  text-decoration: none;
 }
 
 .darkThirdColor {
-    color: #00adb5
+  color: #00adb5;
+}
+
+.whiteThirdColor {
+  color: #1e56a0;
 }

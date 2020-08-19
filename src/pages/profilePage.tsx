@@ -10,6 +10,7 @@ import Email from "../components/profile/email";
 import Counter from "../components/profile/counter";
 import Image from "../components/profile/image";
 import isLoggedin from "../context/login";
+import styler from "../hellpers/styler";
 
 const ProfilePage = () => {
   const log = useContext(isLoggedin);
@@ -46,7 +47,7 @@ const ProfilePage = () => {
   // );
 
   return (
-    <div className="darkSeconBackground">
+    <div className={styler(["seconBackground"])}>
       {user ? <UserName user={user} /> : null}
       {user ? <Image user={user} /> : null}
       {user ? <Email user={user} /> : null}
@@ -58,7 +59,11 @@ const ProfilePage = () => {
           type={"Private favorites"}
         />
       ) : null}
-      {user ? <button onClick={handlleLogOut}>Log Out</button> : null}
+      {user ? (
+        <button onClick={handlleLogOut} className={styler(["Button"])}>
+          Log Out
+        </button>
+      ) : null}
     </div>
   );
 };

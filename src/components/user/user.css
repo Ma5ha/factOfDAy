@@ -1,29 +1,49 @@
 input {
-    opacity: 1;
-    width: 500px;
-    height: 20px;
-    text-align: center;
+  opacity: 1;
+  width: 500px;
+  height: 20px;
+  text-align: center;
 }
 
 form {
-    text-align: center;
+  text-align: center;
 }
 
 button {
-    margin: auto;
-    border-radius: 200px;
+  margin: auto;
+  border-radius: 200px;
 }
 
 .darkInput {
-    border: solid #00adb5;
-    background-color: black;
-    color: #00adb5;
-    transition: all 2s;
+  border: solid #00adb5;
+  background-color: black;
+  color: #00adb5;
+  transition: all 2s;
 }
 
 .darkButton {
-    background-color: black;
-    color: #00adb5;
-    border: solid #00adb5;
-    transition: all 2s;
+  background-color: black;
+  color: #00adb5;
+  border: solid #00adb5;
+  transition: all 2s;
+}
+
+.whiteInput {
+  border: solid #163172;
+  background-color: white;
+  color: #163172;
+  transition: all 2s;
+}
+
+.whiteButton {
+  background-color: #163172;
+  color: #d6e4f0;
+  border: solid #00adb5;
+  transition: all 2s;
+}
+.whiteInput::placeholder {
+  color: #163172;
+}
+.darkInput::placeholder {
+  color: #00adb5;
 }
