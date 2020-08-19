@@ -19,7 +19,7 @@ import isLoggedin from "../../context/login";
 import styler from "../../hellpers/styler";
 
 const NavBar = ({ children }) => {
-  const links: string[] = ["Home", "Sign in"]; // maust start with capital letter
+  const links: string[] = ["Home", "Search", "Sign in"]; // maust start with capital letter
   const protectedRoutes: string[] = ["Profile"];
   const loggedin = useContext(isLoggedin);
 

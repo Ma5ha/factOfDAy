@@ -9,7 +9,7 @@ import Filter from "../components/filter/filter";
 import arrayToString from "../hellpers/arrayToString";
 import { flexCenter, flexRow, justifayCenter } from "../styles/style.var";
 
-const ProfilePage = () => {
+const SearchPage = () => {
   const [page, setPage] = useState<any>();
   const [result, setResult] = useState<any>(undefined);
   const [filter, search] = useInputHook("", "search", "Search quote");
@@ -109,4 +109,4 @@ const ProfilePage = () => {
   );
 };
 
-export default ProfilePage;
+export default SearchPage;

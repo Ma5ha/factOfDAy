@@ -145,5 +145,6 @@
   transition: all 2s;
 }
 .fullPage {
-  height: 100vh;
+  min-height: calc(100vh);
+  max-height: 100%;
 }
