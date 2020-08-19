@@ -12,8 +12,10 @@ import { useHistory } from "react-router-dom";
 import isLoggedin from "../../context/login";
 import themeStyle from "../../hellpers/theme";
 import styler from "../../hellpers/styler";
+import ErrorMessage from "./error";
 
 const UserCotnroller = () => {
+  const [errorMessage, setErrorMessage] = useState<string>();
   const buttonStyle = ["Button"];
   const logged = useContext(isLoggedin);
   const history = useHistory();
@@ -49,6 +51,7 @@ const UserCotnroller = () => {
       { headers: { ...Heeaders } },
       (req) => {
         if (req.data.error_code) {
+          setErrorMessage(req.data.message);
           return;
         }
 
@@ -60,12 +63,12 @@ const UserCotnroller = () => {
       }
     );
     resetForm();
-
-    console.log(logged.user);
   };
 
   return (
     <div style={{ margin: "auto" }}>
+      <ErrorMessage data={errorMessage} />
+
       <form onSubmit={handlleSubmit} style={{ margin: "auto" }}>
         <Login name={bindName} password={bindPassword}>
           {signup ? <SignUp email={bindEmail} /> : null}
