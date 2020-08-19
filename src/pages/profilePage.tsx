@@ -11,6 +11,13 @@ import Counter from "../components/profile/counter";
 import Image from "../components/profile/image";
 import isLoggedin from "../context/login";
 import styler from "../hellpers/styler";
+import {
+  flexRow,
+  flexColumn,
+  autoMargin,
+  spaceAround,
+} from "../styles/style.var";
+import arrayToString from "../hellpers/arrayToString";
 
 const ProfilePage = () => {
   const log = useContext(isLoggedin);
@@ -48,22 +55,48 @@ const ProfilePage = () => {
 
   return (
     <div className={styler(["seconBackground"])}>
-      {user ? <UserName user={user} /> : null}
-      {user ? <Image user={user} /> : null}
-      {user ? <Email user={user} /> : null}
-      {user ? <Counter follow={user?.followers} type={"followers"} /> : null}
-      {user ? <Counter follow={user?.following} type={"following"} /> : null}
-      {user ? (
-        <Counter
-          follow={user.account_details?.private_favorites_count}
-          type={"Private favorites"}
-        />
-      ) : null}
-      {user ? (
-        <button onClick={handlleLogOut} className={styler(["Button"])}>
-          Log Out
-        </button>
-      ) : null}
+      <div className={arrayToString([flexColumn, autoMargin])}>
+        {user ? (
+          <div className={autoMargin}>
+            <UserName user={user} />
+          </div>
+        ) : null}
+        {user ? (
+          <div className={autoMargin}>
+            <Image user={user} />{" "}
+          </div>
+        ) : null}
+        {user ? (
+          <div className={autoMargin}>
+            <Email user={user} />
+          </div>
+        ) : null}
+        {user ? (
+          <div className={autoMargin}>
+            <Counter follow={user?.followers} type={"followers"} />
+          </div>
+        ) : null}
+        {user ? (
+          <div className={autoMargin}>
+            <Counter follow={user?.following} type={"following"} />{" "}
+          </div>
+        ) : null}
+        {user ? (
+          <div className={autoMargin}>
+            <Counter
+              follow={user.account_details?.private_favorites_count}
+              type={"Private favorites"}
+            />
+          </div>
+        ) : null}
+        {user ? (
+          <div className={autoMargin}>
+            <button onClick={handlleLogOut} className={styler(["Button"])}>
+              Log Out
+            </button>
+          </div>
+        ) : null}
+      </div>
     </div>
   );
 };
