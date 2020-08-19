@@ -15,6 +15,8 @@ import Quote from "../quote/quote";
 import Votes from "../quote/votes";
 import { Quote as Quot } from "../quote/quoteTypes";
 import "./shearchBar.css";
+import styler from "../../hellpers/styler";
+import themeStyle from "../../hellpers/theme";
 
 const SearchBar = ({ handleSubmit, search, result, filter }) => {
   return (
@@ -30,7 +32,13 @@ const SearchBar = ({ handleSubmit, search, result, filter }) => {
         <form onSubmit={handleSubmit}>
           <input
             {...inputFactory(
-              styleToggle("bigSearchBar", "smallSearchBar", result),
+              [
+                arrayToString([
+                  ...themeStyle(["Input"]),
+                  styleToggle("bigSearchBar", "smallSearchBar", result),
+                ]),
+              ],
+
               search
             )}
           ></input>

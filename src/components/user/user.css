@@ -15,7 +15,6 @@ button {
 }
 
 .darkInput {
-  border: solid #00adb5;
   background-color: black;
   color: #00adb5;
   transition: all 2s;
@@ -23,7 +22,7 @@ button {
 
 .darkButton {
   background-color: black;
-  color: #00adb5;
+  color: #00adb5 !important;
   border: solid #00adb5;
   transition: all 2s;
 }
