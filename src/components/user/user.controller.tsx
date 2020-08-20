@@ -48,7 +48,7 @@ const UserCotnroller = () => {
       return false;
     }
 
-    if (signup === false && login) {
+    if (logIn && signup === false) {
       return false;
     }
     return true;
