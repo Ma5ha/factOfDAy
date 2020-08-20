@@ -18,6 +18,7 @@ import isPasswordValid from "./helpers/isValidPassword";
 import isValidEmail from "./helpers/validEmail";
 
 const UserCotnroller = () => {
+  const { Authorization } = Heeaders;
   const [errorMessage, setErrorMessage] = useState<string>();
   const buttonStyle = ["Button"];
   const logged = useContext(isLoggedin);
@@ -62,12 +63,11 @@ const UserCotnroller = () => {
 
   const handlleSubmit = (e) => {
     e.preventDefault();
-    sessionStorage.clear();
 
     postRequest(
       loginOrSignupUrl(signup),
       { user },
-      { headers: { ...Heeaders } },
+      { headers: { Authorization } },
       (req) => {
         if (req.data.error_code) {
           setErrorMessage(req.data.message);
