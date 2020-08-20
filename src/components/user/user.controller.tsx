@@ -18,9 +18,6 @@ import isPasswordValid from "./helpers/isValidPassword";
 import isValidEmail from "./helpers/validEmail";
 
 const UserCotnroller = () => {
-  const [errorObject, setErroObject] = useState<{ email: string }>({
-    email: undefined,
-  });
   const [errorMessage, setErrorMessage] = useState<string>();
   const buttonStyle = ["Button"];
   const logged = useContext(isLoggedin);
@@ -44,10 +41,17 @@ const UserCotnroller = () => {
     email,
   };
 
-  const setErrorMessages = () => {
-    if (!isValidEmail(email)) {
-      setErroObject({ ...errorObject, email: "Not valid Email!" });
+  const validForm = () => {
+    const logIn = isValidName(login) && isPasswordValid(password);
+
+    if (signup && logIn && isValidEmail(email)) {
+      return false;
     }
+
+    if (signup === false && login) {
+      return false;
+    }
+    return true;
   };
 
   const resetForm = () => {
@@ -58,15 +62,6 @@ const UserCotnroller = () => {
 
   const handlleSubmit = (e) => {
     e.preventDefault();
-
-    if (
-      !isValidEmail(email) &&
-      !isValidName(login) &&
-      !isPasswordValid(password)
-    ) {
-      setErrorMessages();
-      return;
-    }
 
     postRequest(
       loginOrSignupUrl(signup),
@@ -95,11 +90,15 @@ const UserCotnroller = () => {
       <ErrorMessage data={errorMessage} />
 
       <form onSubmit={handlleSubmit} style={{ margin: "auto" }}>
-        <Login name={{ bindName, login }} password={bindPassword}>
+        <Login name={{ bindName, login }} password={{ bindPassword, password }}>
           {signup ? <SignUp email={{ bindEmail, email }} /> : null}
         </Login>
-        {errorObject.email ? <p>{errorObject.email}</p> : null}
-        <button className={styler(buttonStyle)}>Submit</button> <br></br>
+
+        <button disabled={validForm()}>
+          {/* className={styler(buttonStyle)} */}
+          Submit
+        </button>
+        <br></br>
       </form>
 
       {signup ? (

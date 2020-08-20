@@ -7,11 +7,9 @@ const SignUp = ({ email: { bindEmail, email } }) => {
   const [validEmail, setValidEmail] = useState(true);
 
   const checkEmail = () => {
-    if (isValidEmail(email)) {
-      setValidEmail(true);
-    }
-    setValidEmail(false);
+    setValidEmail(isValidEmail(email));
   };
+
   return (
     <>
       <label>Email</label>

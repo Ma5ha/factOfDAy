@@ -3,7 +3,11 @@ import themeStyle from "../../hellpers/theme";
 import isValidName from "./helpers/validName";
 import isPasswordValid from "./helpers/isValidPassword";
 
-const Login = ({ children, name: { bindName, login }, password }) => {
+const Login = ({
+  children,
+  name: { bindName, login },
+  password: { bindPassword, password },
+}) => {
   const [validName, setValidName] = useState(true);
   const [validPassword, setValidPassword] = useState(true);
   const shortNameError = login.length < 1;
@@ -17,11 +21,8 @@ const Login = ({ children, name: { bindName, login }, password }) => {
     setValidName(false);
   };
   const checkPassword = () => {
-    if (isPasswordValid(password)) {
-      setValidPassword(true);
-    }
-
-    setValidPassword(false);
+    setValidPassword(isPasswordValid(password));
+    console.log(validPassword);
   };
 
   return (
@@ -59,7 +60,7 @@ const Login = ({ children, name: { bindName, login }, password }) => {
       <br></br>
       <input
         className={themeStyle(["Input"])}
-        {...password}
+        {...bindPassword}
         onBlur={checkPassword}
       ></input>
       <br></br>
