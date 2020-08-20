@@ -1,5 +1,6 @@
 import React from "react";
 import themeStyle from "../../hellpers/theme";
+import isValidName from "./helpers/validName";
 
 const Login = ({ children, name, password }) => {
   return (

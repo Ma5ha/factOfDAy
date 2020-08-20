@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, isValidElement } from "react";
 import useInputHook from "../../customHooks/inputHook";
 import "./user.css";
 import Login from "./login";
@@ -13,12 +13,17 @@ import isLoggedin from "../../context/login";
 import themeStyle from "../../hellpers/theme";
 import styler from "../../hellpers/styler";
 import ErrorMessage from "./error";
+import isValidName from "./helpers/validName";
+import isPasswordValid from "./helpers/isValidPassword";
+import isValidEmail from "./helpers/validEmail";
 
 const UserCotnroller = () => {
+  const [errorObject, setErroObject] = useState();
   const [errorMessage, setErrorMessage] = useState<string>();
   const buttonStyle = ["Button"];
   const logged = useContext(isLoggedin);
   const history = useHistory();
+
   const [email, bindEmail, resetEmail] = useInputHook(
     "",
     "",
@@ -45,24 +50,32 @@ const UserCotnroller = () => {
 
   const handlleSubmit = (e) => {
     e.preventDefault();
-    postRequest(
-      loginOrSignupUrl(signup),
-      { user },
-      { headers: { ...Heeaders } },
-      (req) => {
-        if (req.data.error_code) {
-          setErrorMessage(req.data.message);
-          return;
-        }
 
-        saveToken(req.data["User-Token"]);
-        if (loggedIn()) {
-          history.push("/profile");
-          logged.set();
+    if (
+      isValidEmail(email) &&
+      isValidName(login) &&
+      isPasswordValid(password)
+    ) {
+      postRequest(
+        loginOrSignupUrl(signup),
+        { user },
+        { headers: { ...Heeaders } },
+        (req) => {
+          if (req.data.error_code) {
+            setErrorMessage(req.data.message);
+            return;
+          }
+
+          saveToken(req.data["User-Token"]);
+          if (loggedIn()) {
+            history.push("/profile");
+            logged.set();
+          }
         }
-      }
-    );
-    resetForm();
+      );
+      resetForm();
+      return;
+    }
   };
 
   return (
