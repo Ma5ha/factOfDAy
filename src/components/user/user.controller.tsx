@@ -96,7 +96,7 @@ const UserCotnroller = () => {
 
       <form onSubmit={handlleSubmit} style={{ margin: "auto" }}>
         <Login name={{ bindName, login }} password={bindPassword}>
-          {signup ? <SignUp email={bindEmail} /> : null}
+          {signup ? <SignUp email={{ bindEmail, email }} /> : null}
         </Login>
         {errorObject.email ? <p>{errorObject.email}</p> : null}
         <button className={styler(buttonStyle)}>Submit</button> <br></br>
