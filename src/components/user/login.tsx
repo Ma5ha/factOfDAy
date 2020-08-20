@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import themeStyle from "../../hellpers/theme";
 import isValidName from "./helpers/validName";
+import isPasswordValid from "./helpers/isValidPassword";
 
 const Login = ({ children, name: { bindName, login }, password }) => {
   const [validName, setValidName] = useState(true);
-
+  const [validPassword, setValidPassword] = useState(true);
   const shortNameError = login.length < 1;
   const longNameError = login.length > 20;
   const invalidNameCharacter = isValidName(login);
@@ -14,6 +15,13 @@ const Login = ({ children, name: { bindName, login }, password }) => {
       return;
     }
     setValidName(false);
+  };
+  const checkPassword = () => {
+    if (isPasswordValid(password)) {
+      setValidPassword(true);
+    }
+
+    setValidPassword(false);
   };
 
   return (
@@ -49,8 +57,18 @@ const Login = ({ children, name: { bindName, login }, password }) => {
       {children}
       <label>Password</label>
       <br></br>
-      <input className={themeStyle(["Input"])} {...password}></input>
+      <input
+        className={themeStyle(["Input"])}
+        {...password}
+        onBlur={checkPassword}
+      ></input>
       <br></br>
+
+      {validPassword ? null : (
+        <div className="errors">
+          <p>Password length must be between 5 and 120 characters</p>
+        </div>
+      )}
     </>
   );
 };
