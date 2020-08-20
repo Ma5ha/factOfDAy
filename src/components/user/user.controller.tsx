@@ -1,4 +1,4 @@
-import React, { useState, useContext, isValidElement } from "react";
+import React, { useState, useContext } from "react";
 import useInputHook from "../../customHooks/inputHook";
 import "./user.css";
 import Login from "./login";
@@ -18,7 +18,9 @@ import isPasswordValid from "./helpers/isValidPassword";
 import isValidEmail from "./helpers/validEmail";
 
 const UserCotnroller = () => {
-  const [errorObject, setErroObject] = useState();
+  const [errorObject, setErroObject] = useState<{ email: string }>({
+    email: undefined,
+  });
   const [errorMessage, setErrorMessage] = useState<string>();
   const buttonStyle = ["Button"];
   const logged = useContext(isLoggedin);
@@ -42,6 +44,12 @@ const UserCotnroller = () => {
     email,
   };
 
+  const setErrorMessages = () => {
+    if (!isValidEmail(email)) {
+      setErroObject({ ...errorObject, email: "Not valid Email!" });
+    }
+  };
+
   const resetForm = () => {
     resetEmail();
     resetPassword();
@@ -52,30 +60,34 @@ const UserCotnroller = () => {
     e.preventDefault();
 
     if (
-      isValidEmail(email) &&
-      isValidName(login) &&
-      isPasswordValid(password)
+      !isValidEmail(email) &&
+      !isValidName(login) &&
+      !isPasswordValid(password)
     ) {
-      postRequest(
-        loginOrSignupUrl(signup),
-        { user },
-        { headers: { ...Heeaders } },
-        (req) => {
-          if (req.data.error_code) {
-            setErrorMessage(req.data.message);
-            return;
-          }
-
-          saveToken(req.data["User-Token"]);
-          if (loggedIn()) {
-            history.push("/profile");
-            logged.set();
-          }
-        }
-      );
-      resetForm();
+      setErrorMessages();
       return;
     }
+
+    postRequest(
+      loginOrSignupUrl(signup),
+      { user },
+      { headers: { ...Heeaders } },
+      (req) => {
+        if (req.data.error_code) {
+          setErrorMessage(req.data.message);
+          return;
+        }
+
+        saveToken(req.data["User-Token"]);
+        if (loggedIn()) {
+          history.push("/profile");
+          logged.set();
+        }
+      }
+    );
+
+    resetForm();
+    return;
   };
 
   return (
@@ -83,9 +95,10 @@ const UserCotnroller = () => {
       <ErrorMessage data={errorMessage} />
 
       <form onSubmit={handlleSubmit} style={{ margin: "auto" }}>
-        <Login name={bindName} password={bindPassword}>
+        <Login name={{ bindName, login }} password={bindPassword}>
           {signup ? <SignUp email={bindEmail} /> : null}
         </Login>
+        {errorObject.email ? <p>{errorObject.email}</p> : null}
         <button className={styler(buttonStyle)}>Submit</button> <br></br>
       </form>
 
