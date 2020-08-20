@@ -22,7 +22,6 @@ const Login = ({
   };
   const checkPassword = () => {
     setValidPassword(isPasswordValid(password));
-    console.log(validPassword);
   };
 
   return (

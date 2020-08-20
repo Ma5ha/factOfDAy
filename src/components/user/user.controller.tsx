@@ -95,8 +95,7 @@ const UserCotnroller = () => {
           {signup ? <SignUp email={{ bindEmail, email }} /> : null}
         </Login>
 
-        <button disabled={validForm()}>
-          {/* className={styler(buttonStyle)} */}
+        <button disabled={validForm()} className={styler(buttonStyle)}>
           Submit
         </button>
         <br></br>
