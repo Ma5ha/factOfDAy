@@ -62,6 +62,7 @@ const UserCotnroller = () => {
 
   const handlleSubmit = (e) => {
     e.preventDefault();
+    sessionStorage.clear();
 
     postRequest(
       loginOrSignupUrl(signup),
