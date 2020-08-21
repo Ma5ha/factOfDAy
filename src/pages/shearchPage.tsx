@@ -74,13 +74,25 @@ const SearchPage = () => {
           filter={filter}
         />
         {page ? (
-          <div className={arrayToString([flexRow, justifayCenter])}>
+          <div
+            className={arrayToString([
+              flexRow,
+              justifayCenter,
+              "pageNavigation autoMargin",
+            ])}
+          >
             <button className="freeMargin" onClick={prevPage}>
-              &#60;
+              <img
+                src="https://img.icons8.com/flat_round/64/000000/back--v1.png"
+                alt="back"
+              />
             </button>
-            {page}
+            <span className="pageNumber"> {page}</span>
             <button className="freeMargin" onClick={nexPage}>
-              &#62;
+              <img
+                src="https://img.icons8.com/flat_round/64/000000/circled-chevron-right.png"
+                alt="next"
+              />
             </button>
           </div>
         ) : null}
