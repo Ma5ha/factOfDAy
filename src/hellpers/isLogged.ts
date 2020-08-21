@@ -1,5 +1,4 @@
 export const loggedIn = () => {
-  console.log(token());
   return token() ? true : false;
 };
 
