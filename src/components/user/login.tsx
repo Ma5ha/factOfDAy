@@ -60,6 +60,7 @@ const Login = ({
       <input
         className={themeStyle(["Input"])}
         {...bindPassword}
+        autoComplete="on"
         onBlur={checkPassword}
       ></input>
       <br></br>
