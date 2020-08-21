@@ -15,6 +15,8 @@ import "./quoteStyle.css";
 import arrayToString from "../../hellpers/arrayToString";
 import Author from "./author";
 
+import spiner from "../../assets/spiner.gif";
+
 const QuoteController = () => {
   const [quoteState, setQuote] = useState<quote>();
 
@@ -44,7 +46,7 @@ const QuoteController = () => {
         </div>
       </div>
     );
-  return <h1>Loading...</h1>;
+  return <img className="autoMargin" src={spiner} alt="ssasa" width="50px" />;
 };
 
 export default QuoteController;
