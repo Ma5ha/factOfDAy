@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 const UserName = ({ user: { login } }) => {
   return <h4>User:{login}</h4>;

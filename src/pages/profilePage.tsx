@@ -11,17 +11,11 @@ import Counter from "../components/profile/counter";
 import Image from "../components/profile/image";
 import isLoggedin from "../context/login";
 import styler from "../hellpers/styler";
-import {
-  flexRow,
-  flexColumn,
-  autoMargin,
-  spaceAround,
-} from "../styles/style.var";
+import { flexColumn, autoMargin } from "../styles/style.var";
 import arrayToString from "../hellpers/arrayToString";
 import token from "../hellpers/isLogged";
 
 const ProfilePage = () => {
-  console.log(Heeaders);
   const log = useContext(isLoggedin);
   const history = useHistory();
   const [user, setUser] = useState<User>();
@@ -44,7 +38,7 @@ const ProfilePage = () => {
 
   useEffect(() => {
     getRequest(api.signUp(), callBack, config);
-  }, []);
+  }, [config]);
 
   return user ? (
     <div className={styler(["seconBackground"])}>

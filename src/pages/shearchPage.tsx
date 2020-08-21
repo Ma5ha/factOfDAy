@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState } from "react";
 import SearchBar from "../components/search/searchBar";
 import useInputHook from "../customHooks/inputHook";
 import { Heeaders } from "../actions/Headers";
@@ -7,7 +7,7 @@ import { api } from "../enviroment/api";
 import filterAuthor from "../hellpers/filterAuthor";
 import Filter from "../components/filter/filter";
 import arrayToString from "../hellpers/arrayToString";
-import { flexCenter, flexRow, justifayCenter } from "../styles/style.var";
+import { flexRow, justifayCenter } from "../styles/style.var";
 
 const SearchPage = () => {
   const [page, setPage] = useState<any>();

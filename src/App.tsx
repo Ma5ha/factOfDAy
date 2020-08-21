@@ -22,7 +22,7 @@ import PrivateRoute from "./components/privateRoute/privateRoute";
 import { loggedIn } from "./hellpers/isLogged";
 import isLoggedin from "./context/login";
 import themeStyle from "./hellpers/theme";
-import ProfilePage from "./pages/profilePage";
+
 import SearchPage from "./pages/shearchPage";
 function App() {
   const [, setTheme] = useState(getTheme);

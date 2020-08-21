@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import arrayToString from "../../hellpers/arrayToString";
 import {
@@ -15,7 +15,7 @@ import Quote from "../quote/quote";
 import Votes from "../quote/votes";
 import { Quote as Quot } from "../quote/quoteTypes";
 import "./shearchBar.css";
-import styler from "../../hellpers/styler";
+
 import themeStyle from "../../hellpers/theme";
 
 const SearchBar = ({ handleSubmit, search, result, filter }) => {

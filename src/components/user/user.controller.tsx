@@ -10,13 +10,12 @@ import loginOrSignupUrl from "./helpers/loginSringupUrl";
 import { loggedIn } from "../../hellpers/isLogged";
 import { useHistory } from "react-router-dom";
 import isLoggedin from "../../context/login";
-import themeStyle from "../../hellpers/theme";
+
 import styler from "../../hellpers/styler";
 import ErrorMessage from "./error";
 import isValidName from "./helpers/validName";
 import isPasswordValid from "./helpers/isValidPassword";
 import isValidEmail from "./helpers/validEmail";
-import { api } from "../../enviroment/api";
 
 const UserCotnroller = () => {
   const { Authorization } = Heeaders;
