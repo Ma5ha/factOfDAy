@@ -1,12 +1,5 @@
-import { quote } from "./quoteTypes";
 import React from "react";
-import {
-  textCenter,
-  flexCenter,
-  flexRow,
-  flexColumn,
-} from "../../styles/style.var";
-import arrayToString from "../../hellpers/arrayToString";
+import { textCenter } from "../../styles/style.var";
 import highlight from "../../hellpers/highlight";
 
 const Quote = ({ quote: [str, filter] }) => {
