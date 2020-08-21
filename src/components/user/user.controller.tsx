@@ -16,6 +16,7 @@ import ErrorMessage from "./error";
 import isValidName from "./helpers/validName";
 import isPasswordValid from "./helpers/isValidPassword";
 import isValidEmail from "./helpers/validEmail";
+import { api } from "../../enviroment/api";
 
 const UserCotnroller = () => {
   const { Authorization } = Heeaders;

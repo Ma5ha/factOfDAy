@@ -18,14 +18,16 @@ import {
   spaceAround,
 } from "../styles/style.var";
 import arrayToString from "../hellpers/arrayToString";
+import token from "../hellpers/isLogged";
 
 const ProfilePage = () => {
+  console.log(Heeaders);
   const log = useContext(isLoggedin);
   const history = useHistory();
-  const [user, setUser] = useState<User | undefined>();
+  const [user, setUser] = useState<User>();
 
   const config = {
-    headers: { ...Heeaders },
+    headers: { ...Heeaders, "User-Token": token() },
   };
 
   const handlleLogOut = () => {
@@ -37,7 +39,6 @@ const ProfilePage = () => {
   };
 
   const callBack = (x) => {
-    console.log(x);
     setUser(x);
   };
 
@@ -45,59 +46,38 @@ const ProfilePage = () => {
     getRequest(api.signUp(), callBack, config);
   }, []);
 
-  // return user ? (
-  //   <>
-
-  //   </>
-  // ) : (
-  //   <h1> loading</h1>
-  // );
-
-  return (
+  return user ? (
     <div className={styler(["seconBackground"])}>
       <div className={arrayToString([flexColumn, autoMargin])}>
-        {user ? (
-          <div className={autoMargin}>
-            <UserName user={user} />
-          </div>
-        ) : null}
-        {user ? (
-          <div className={autoMargin}>
-            <Image user={user} />{" "}
-          </div>
-        ) : null}
-        {user ? (
-          <div className={autoMargin}>
-            <Email user={user} />
-          </div>
-        ) : null}
-        {user ? (
-          <div className={autoMargin}>
-            <Counter follow={user?.followers} type={"followers"} />
-          </div>
-        ) : null}
-        {user ? (
-          <div className={autoMargin}>
-            <Counter follow={user?.following} type={"following"} />{" "}
-          </div>
-        ) : null}
-        {user ? (
-          <div className={autoMargin}>
-            <Counter
-              follow={user.account_details?.private_favorites_count}
-              type={"Private favorites"}
-            />
-          </div>
-        ) : null}
-        {user ? (
+        <div className={autoMargin}>
+          <UserName user={user} />
+        </div>
+        <div className={autoMargin}>
+          <Image user={user} />
+        </div>
+        <div className={autoMargin}>
+          <Email user={user} />
+        </div>
+        <div className={autoMargin}>
+          <Counter follow={user?.followers} type={"followers"} />
+        </div>
+        <div className={autoMargin}>
+          <Counter follow={user?.following} type={"following"} />{" "}
+        </div>
+        <div className={autoMargin}>
+          <Counter
+            follow={user.account_details?.private_favorites_count}
+            type={"Private favorites"}
+          />
           <div className={autoMargin}>
             <button onClick={handlleLogOut} className={styler(["Button"])}>
               Log Out
             </button>
           </div>
-        ) : null}
+        </div>
       </div>
     </div>
-  );
+  ) : null;
 };
+
 export default ProfilePage;
