@@ -7,13 +7,10 @@ import {
   flexCenter,
   flexRow,
   spaceBetween,
-  flexColumn,
   spaceAround,
   textCenter,
-  autoMargin,
 } from "../../styles/style.var";
 
-import loggedIn from "../../hellpers/isLogged";
 import isLoggedin from "../../context/login";
 import styler from "../../hellpers/styler";
 import link from "../../hellpers/link";
