@@ -13,10 +13,10 @@ import {
   autoMargin,
 } from "../../styles/style.var";
 
-import { Link } from "react-router-dom";
 import loggedIn from "../../hellpers/isLogged";
 import isLoggedin from "../../context/login";
 import styler from "../../hellpers/styler";
+import link from "../../hellpers/link";
 
 const NavBar = ({ children }) => {
   const links: string[] = ["Home", "Search", "Sign in"]; // maust start with capital letter
@@ -55,11 +55,3 @@ const NavBar = ({ children }) => {
 };
 
 export default NavBar;
-
-const link = (array: string[], styles?) => {
-  return array.map((link) => (
-    <Link key={link} className={styles} to={`/${link.toLowerCase()}`}>
-      {link}
-    </Link>
-  ));
-};
