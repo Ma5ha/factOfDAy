@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import arrayToString from "../../hellpers/arrayToString";
 import {
@@ -24,6 +24,16 @@ import dislike from "../../assets/dislike.svg";
 import { api } from "../../enviroment/api";
 
 const SearchBar = ({ handleSubmit, search, result, filter, vote }) => {
+  const [style, setStyle] = useState<string>();
+  const clckedStyled = "jello-horizontal";
+
+  const addStyle = (match: string) => {
+    if (style === match) {
+      return `quoteAction ${clckedStyled}`;
+    }
+
+    return "quoteAction";
+  };
   return (
     <div className={arrayToString([flexColumn, spaceAround])}>
       <div
@@ -62,8 +72,9 @@ const SearchBar = ({ handleSubmit, search, result, filter, vote }) => {
                     <img
                       onClick={() => {
                         vote(api.downvote(res.id));
+                        setStyle(res.id + "donwnvotes");
                       }}
-                      className="quoteAction"
+                      className={addStyle(res.id + "donwnvotes")}
                       src={dislike}
                       alt="unlike"
                     />
@@ -76,8 +87,9 @@ const SearchBar = ({ handleSubmit, search, result, filter, vote }) => {
                       <img
                         onClick={() => {
                           vote(api.upvote(res.id));
+                          setStyle(res.id + "upvotes");
                         }}
-                        className="quoteAction"
+                        className={addStyle(res.id + "upvotes")}
                         src={like}
                         alt="like"
                       />
@@ -91,8 +103,9 @@ const SearchBar = ({ handleSubmit, search, result, filter, vote }) => {
                     <img
                       onClick={() => {
                         vote(api.favorite(res.id));
+                        setStyle(res.id + "fav");
                       }}
-                      className="quoteAction"
+                      className={addStyle(res.id + "fav")}
                       src={hart}
                       alt="favorite"
                     />
