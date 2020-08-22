@@ -17,7 +17,10 @@ import { Quote as Quot } from "../quote/quoteTypes";
 import "./shearchBar.css";
 
 import themeStyle from "../../hellpers/theme";
+import hart from "../../assets/heart.svg";
+import like from "../../assets/like.svg";
 
+import dislike from "../../assets/dislike.svg";
 const SearchBar = ({ handleSubmit, search, result, filter }) => {
   return (
     <div className={arrayToString([flexColumn, spaceAround])}>
@@ -51,12 +54,27 @@ const SearchBar = ({ handleSubmit, search, result, filter }) => {
               <Author quote={res} />
               <Quote quote={[res, filter]} />
               <div className={arrayToString([flexRow, justifayCenter])}>
-                <Votes votes={res.downvotes_count}>Downvotes</Votes>
+                <Votes votes={res.downvotes_count}>
+                  <div className="flexColumn columnReverse autoMargin">
+                    Downvotes
+                    <img className="quoteAction" src={dislike} alt="unlike" />
+                  </div>
+                </Votes>
                 <div style={{ margin: "0 10px 0 10px" }}>
-                  <Votes votes={res.upvotes_count}>Upvotes</Votes>
+                  <Votes votes={res.upvotes_count}>
+                    <div className="flexColumn columnReverse autoMargin">
+                      Upvotes
+                      <img className="quoteAction" src={like} alt="like" />
+                    </div>
+                  </Votes>
                 </div>
 
-                <Votes votes={res.favorites_count}>Favorite</Votes>
+                <Votes votes={res.favorites_count}>
+                  <div className="flexColumn columnReverse autoMargin">
+                    Favorites
+                    <img className="quoteAction" src={hart} alt="favorite" />
+                  </div>
+                </Votes>
               </div>
             </div>
           ))
