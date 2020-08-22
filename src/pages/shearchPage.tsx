@@ -8,6 +8,9 @@ import filterAuthor from "../hellpers/filterAuthor";
 import Filter from "../components/filter/filter";
 import arrayToString from "../hellpers/arrayToString";
 import { flexRow, justifayCenter } from "../styles/style.var";
+import putRequest from "../actions/putRequest";
+
+import token from "../hellpers/isLogged";
 
 const SearchPage = () => {
   const [page, setPage] = useState<any>();
@@ -18,8 +21,14 @@ const SearchPage = () => {
   const [lastPage, setLastPage] = useState<unknown>();
 
   let Config = {
-    headers: { ...Heeaders },
+    headers: { ...Heeaders, "User-Token": token() },
     params: { filter, page },
+  };
+
+  const vote = (url) => {
+    putRequest(url, Config);
+
+    getRequest(api.quotes(), quotesCallback, { ...Config });
   };
 
   const quotesCallback = (arg) => {
@@ -72,6 +81,7 @@ const SearchPage = () => {
           search={search}
           result={result}
           filter={filter}
+          vote={vote}
         />
         {page ? (
           <div

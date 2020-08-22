@@ -21,7 +21,9 @@ import hart from "../../assets/heart.svg";
 import like from "../../assets/like.svg";
 
 import dislike from "../../assets/dislike.svg";
-const SearchBar = ({ handleSubmit, search, result, filter }) => {
+import { api } from "../../enviroment/api";
+
+const SearchBar = ({ handleSubmit, search, result, filter, vote }) => {
   return (
     <div className={arrayToString([flexColumn, spaceAround])}>
       <div
@@ -57,14 +59,28 @@ const SearchBar = ({ handleSubmit, search, result, filter }) => {
                 <Votes votes={res.downvotes_count}>
                   <div className="flexColumn columnReverse autoMargin">
                     Downvotes
-                    <img className="quoteAction" src={dislike} alt="unlike" />
+                    <img
+                      onClick={() => {
+                        vote(api.downvote(res.id));
+                      }}
+                      className="quoteAction"
+                      src={dislike}
+                      alt="unlike"
+                    />
                   </div>
                 </Votes>
                 <div style={{ margin: "0 10px 0 10px" }}>
                   <Votes votes={res.upvotes_count}>
                     <div className="flexColumn columnReverse autoMargin">
                       Upvotes
-                      <img className="quoteAction" src={like} alt="like" />
+                      <img
+                        onClick={() => {
+                          vote(api.upvote(res.id));
+                        }}
+                        className="quoteAction"
+                        src={like}
+                        alt="like"
+                      />
                     </div>
                   </Votes>
                 </div>
@@ -72,7 +88,14 @@ const SearchBar = ({ handleSubmit, search, result, filter }) => {
                 <Votes votes={res.favorites_count}>
                   <div className="flexColumn columnReverse autoMargin">
                     Favorites
-                    <img className="quoteAction" src={hart} alt="favorite" />
+                    <img
+                      onClick={() => {
+                        vote(api.favorite(res.id));
+                      }}
+                      className="quoteAction"
+                      src={hart}
+                      alt="favorite"
+                    />
                   </div>
                 </Votes>
               </div>

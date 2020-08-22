@@ -6,4 +6,7 @@ export const api = {
   login: () => api.base + "session",
   quotes: () => api.base + "quotes",
   typehead: () => api.base + "typeahead",
+  favorite: (id: number) => api.quotes() + `/${id}/fav`,
+  upvote: (id: number) => api.quotes() + `/${id}/upvote`,
+  downvote: (id: number) => api.quotes() + `/${id}/downvote`,
 };
