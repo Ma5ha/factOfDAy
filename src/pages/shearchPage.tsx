@@ -11,6 +11,7 @@ import { flexRow, justifayCenter } from "../styles/style.var";
 import putRequest from "../actions/putRequest";
 
 import token from "../hellpers/isLogged";
+import SearchResult from "../components/search/searchResult";
 
 const SearchPage = () => {
   const [page, setPage] = useState<any>();
@@ -79,9 +80,8 @@ const SearchPage = () => {
           handleSubmit={handleSubmit}
           search={search}
           result={result}
-          filter={filter}
-          vote={vote}
         />
+        <SearchResult data={{ result, filter, vote }} />
         {page ? (
           <div
             className={arrayToString([

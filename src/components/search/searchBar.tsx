@@ -23,17 +23,7 @@ import like from "../../assets/like.svg";
 import dislike from "../../assets/dislike.svg";
 import { api } from "../../enviroment/api";
 
-const SearchBar = ({ handleSubmit, search, result, filter, vote }) => {
-  const [style, setStyle] = useState<string>();
-  const clckedStyled = "jello-horizontal";
-
-  const addStyle = (match: string) => {
-    if (style === match) {
-      return `quoteAction ${clckedStyled}`;
-    }
-
-    return "quoteAction";
-  };
+const SearchBar = ({ handleSubmit, search, result }) => {
   return (
     <div className={arrayToString([flexColumn, spaceAround])}>
       <div
@@ -59,76 +49,6 @@ const SearchBar = ({ handleSubmit, search, result, filter, vote }) => {
           ></input>
         </form>
       </div>
-
-      {result
-        ? result.quotes.map((res: Quot) => (
-            <div key={res.id} className="fade-in-bottom quote">
-              <div className="main autoMargin">
-                <Quote quote={[res, filter]} />
-                <Author quote={res} />
-              </div>
-              <div className="lefIcons">
-                <div className={arrayToString([flexRow, justifayCenter])}></div>
-                <Votes votes={`${res.downvotes_count}`}>
-                  <div className="flexColumn columnReverse autoMargin">
-                    Downvotes
-                    <img
-                      onClick={() => {
-                        vote(api.downvote(res.id));
-                        setStyle(res.id + "donwnvotes");
-                      }}
-                      className={`${addStyle(
-                        res.id + "donwnvotes"
-                      )} ${themeStyle(["IconShadow"])}`}
-                      src={dislike}
-                      alt="unlike"
-                    />
-                  </div>
-                </Votes>
-                <div style={{ margin: "0 10px 0 10px" }}>
-                  <Votes votes={res.upvotes_count}>
-                    <div className="flexColumn columnReverse autoMargin">
-                      Upvotes
-                      <img
-                        onClick={() => {
-                          vote(api.upvote(res.id));
-                          setStyle(res.id + "upvotes");
-                        }}
-                        className={`${addStyle(
-                          res.id + "upvotes"
-                        )} ${themeStyle(["IconShadow"])}`}
-                        src={like}
-                        alt="like"
-                      />
-                    </div>
-                  </Votes>
-                </div>
-              </div>
-              <div className="rightIcons">
-                <Votes votes={res.favorites_count}>
-                  <div className="flexColumn columnReverse autoMargin">
-                    Favorites
-                    <img
-                      onClick={() => {
-                        vote(api.favorite(res.id));
-                        setStyle(res.id + "fav");
-                      }}
-                      className={`${addStyle(res.id + "fav")} ${themeStyle([
-                        "IconShadow",
-                      ])}`}
-                      src={hart}
-                      alt="favorite"
-                    />
-                  </div>
-                </Votes>
-              </div>
-              <div></div>
-              <div>
-                <hr className={themeStyle(["Line"]).join(" ")} />
-              </div>
-            </div>
-          ))
-        : null}
     </div>
   );
 };
