@@ -143,3 +143,17 @@
   width: 50%;
   transition: all 2s;
 }
+
+.filter {
+  display: grid;
+  grid-template-areas: "name number";
+  grid-template-columns: 80% 20%;
+}
+
+.name {
+  grid-area: name;
+}
+
+.number {
+  grid-area: number
+}

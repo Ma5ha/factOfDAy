@@ -12,6 +12,7 @@ import putRequest from "../actions/putRequest";
 
 import token from "../hellpers/isLogged";
 import SearchResult from "../components/search/searchResult";
+import Authors from "../components/search/authors";
 
 const SearchPage = () => {
   const [page, setPage] = useState<any>();
@@ -106,16 +107,7 @@ const SearchPage = () => {
           </div>
         ) : null}
       </div>
-      <div className="authors">
-        {authors ? (
-          <div className="tags flexColumn ">
-            <h1>Author</h1>
-            {authors.map((author) => (
-              <Filter key={author.name} tag={author} />
-            ))}
-          </div>
-        ) : null}
-      </div>
+      {authors ? <Authors data={{ authors }} /> : null}
       <div className="tags">
         {tags ? (
           <div className="tags flexColumn ">

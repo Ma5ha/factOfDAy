@@ -110,6 +110,7 @@
 
 .tags {
   padding: 5%;
+  padding: 20px;
 }
 
 .round {
@@ -178,4 +179,8 @@ img {
 .quoteAction {
   width: 20px;
   margin: auto
+}
+
+.lineWarper {
+  width: 80%;
 }
