@@ -62,10 +62,13 @@ const SearchBar = ({ handleSubmit, search, result, filter, vote }) => {
 
       {result
         ? result.quotes.map((res: Quot) => (
-            <div key={res.id} className="fade-in-bottom">
-              <Author quote={res} />
-              <Quote quote={[res, filter]} />
-              <div className={arrayToString([flexRow, justifayCenter])}>
+            <div key={res.id} className="fade-in-bottom quote">
+              <div className="main autoMargin">
+                <Quote quote={[res, filter]} />
+                <Author quote={res} />
+              </div>
+              <div className="lefIcons">
+                <div className={arrayToString([flexRow, justifayCenter])}></div>
                 <Votes votes={`${res.downvotes_count}`}>
                   <div className="flexColumn columnReverse autoMargin">
                     Downvotes
@@ -100,7 +103,8 @@ const SearchBar = ({ handleSubmit, search, result, filter, vote }) => {
                     </div>
                   </Votes>
                 </div>
-
+              </div>
+              <div className="rightIcons">
                 <Votes votes={res.favorites_count}>
                   <div className="flexColumn columnReverse autoMargin">
                     Favorites
@@ -117,6 +121,10 @@ const SearchBar = ({ handleSubmit, search, result, filter, vote }) => {
                     />
                   </div>
                 </Votes>
+              </div>
+              <div></div>
+              <div>
+                <hr className={themeStyle(["Line"]).join(" ")} />
               </div>
             </div>
           ))

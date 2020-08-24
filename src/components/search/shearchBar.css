@@ -111,3 +111,35 @@
   transition: all 2s;
   cursor: pointer;
 }
+
+.quote {
+  display: grid;
+  grid-template-areas: "left main right";
+  grid-template-rows: 90%;
+  grid-template-columns: 10% 80%;
+}
+
+.leftIcons {
+  grid-area: left;
+}
+
+.main {
+  grid-area: main;
+}
+
+.rightIcons {
+  grid-area: right;
+  margin: auto;
+}
+
+.whiteLine {
+  border: solid 0.1px #163172;
+  width: 50%;
+  transition: all 2s;
+}
+
+.darkLine {
+  border: solid 0.1px #00adb5;
+  width: 50%;
+  transition: all 2s;
+}
