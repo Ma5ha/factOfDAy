@@ -66,7 +66,7 @@ const SearchBar = ({ handleSubmit, search, result, filter, vote }) => {
               <Author quote={res} />
               <Quote quote={[res, filter]} />
               <div className={arrayToString([flexRow, justifayCenter])}>
-                <Votes votes={res.downvotes_count}>
+                <Votes votes={`${res.downvotes_count}`}>
                   <div className="flexColumn columnReverse autoMargin">
                     Downvotes
                     <img
@@ -74,7 +74,9 @@ const SearchBar = ({ handleSubmit, search, result, filter, vote }) => {
                         vote(api.downvote(res.id));
                         setStyle(res.id + "donwnvotes");
                       }}
-                      className={addStyle(res.id + "donwnvotes")}
+                      className={`${addStyle(
+                        res.id + "donwnvotes"
+                      )} ${themeStyle(["IconShadow"])}`}
                       src={dislike}
                       alt="unlike"
                     />
@@ -89,7 +91,9 @@ const SearchBar = ({ handleSubmit, search, result, filter, vote }) => {
                           vote(api.upvote(res.id));
                           setStyle(res.id + "upvotes");
                         }}
-                        className={addStyle(res.id + "upvotes")}
+                        className={`${addStyle(
+                          res.id + "upvotes"
+                        )} ${themeStyle(["IconShadow"])}`}
                         src={like}
                         alt="like"
                       />
@@ -105,7 +109,9 @@ const SearchBar = ({ handleSubmit, search, result, filter, vote }) => {
                         vote(api.favorite(res.id));
                         setStyle(res.id + "fav");
                       }}
-                      className={addStyle(res.id + "fav")}
+                      className={`${addStyle(res.id + "fav")} ${themeStyle([
+                        "IconShadow",
+                      ])}`}
                       src={hart}
                       alt="favorite"
                     />

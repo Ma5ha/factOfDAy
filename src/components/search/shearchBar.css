@@ -99,3 +99,15 @@
     transform: scale3d(1, 1, 1);
   }
 }
+
+.darkIconShadow {
+  filter: drop-shadow(2px 2px 1px #00adb5);
+  cursor: pointer;
+  transition: all 2s;
+}
+
+.whiteIconShadow {
+  filter: drop-shadow(2px 2px 1px #163172);
+  transition: all 2s;
+  cursor: pointer;
+}

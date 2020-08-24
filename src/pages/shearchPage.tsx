@@ -11,6 +11,7 @@ import { flexRow, justifayCenter } from "../styles/style.var";
 import putRequest from "../actions/putRequest";
 
 import token from "../hellpers/isLogged";
+import postRequest from "../actions/postRequest";
 
 const SearchPage = () => {
   const [page, setPage] = useState<any>();
@@ -27,8 +28,19 @@ const SearchPage = () => {
 
   const vote = (url) => {
     putRequest(url, Config);
-
     getRequest(api.quotes(), quotesCallback, { ...Config });
+
+    // putRequest(url, Config, (x) => {
+    //   const changedQuote = x.data;
+
+    //   quotes.map((quote) => {
+    //     if (quote.id === changedQuote.id) {
+    //       quote = changedQuote;
+    //     }
+    //     const updateResult = { ...result, ...quote };
+    //     setResult(updateResult);
+    //   });
+    // });
   };
 
   const quotesCallback = (arg) => {
