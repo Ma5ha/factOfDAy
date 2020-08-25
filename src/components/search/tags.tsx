@@ -8,7 +8,7 @@ const Tags = ({ data: { tags } }) => {
         <div className=" flexColumn ">
           <h1>Tags</h1>
           {tags.map((tag) => (
-            <Filter key={tag.name} tag={tag} />
+            <Filter key={tag.name} data={tag} index={0} />
           ))}
         </div>
       ) : null}
