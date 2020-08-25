@@ -2,7 +2,7 @@ import React from "react";
 
 const Filter = ({ tag }) => {
   return (
-    <div className="flexRow spaceAround filter">
+    <div className="flexRow spaceAround filter fade-in-bottom">
       <div className="name">
         <p>{tag.name}</p>
       </div>

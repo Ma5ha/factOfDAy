@@ -5,7 +5,7 @@ import { Heeaders } from "../actions/Headers";
 import getRequest from "../actions/getReequest";
 import { api } from "../enviroment/api";
 import filterAuthor from "../hellpers/filterAuthor";
-import Filter from "../components/filter/filter";
+
 import arrayToString from "../hellpers/arrayToString";
 import { flexRow, justifayCenter } from "../styles/style.var";
 import putRequest from "../actions/putRequest";
@@ -13,6 +13,7 @@ import putRequest from "../actions/putRequest";
 import token from "../hellpers/isLogged";
 import SearchResult from "../components/search/searchResult";
 import Authors from "../components/search/authors";
+import Tags from "../components/search/tags";
 
 const SearchPage = () => {
   const [page, setPage] = useState<any>();
@@ -108,16 +109,7 @@ const SearchPage = () => {
         ) : null}
       </div>
       {authors ? <Authors data={{ authors }} /> : null}
-      <div className="tags">
-        {tags ? (
-          <div className="tags flexColumn ">
-            <h1>Tags</h1>
-            {tags.map((tag) => (
-              <Filter key={tag.name} tag={tag} />
-            ))}
-          </div>
-        ) : null}
-      </div>
+      {tags ? <Tags data={{ tags }} /> : null}
     </div>
   );
 };

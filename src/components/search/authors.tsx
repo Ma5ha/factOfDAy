@@ -3,13 +3,10 @@ import Filter from "../filter/filter";
 import themeStyle from "../../hellpers/theme";
 
 const Authors = ({ data: { authors } }) => {
-  const [loadedAuthors, setLoadedAuthors] = useState<number>(3);
-
-  const [showAuthors, setAuthors] = useState(authors.slice(0, loadedAuthors));
+  const [showAuthors, setAuthors] = useState(authors.slice(0, 4));
 
   const loadMore = () => {
-    setAuthors(authors.slice(0, loadedAuthors + 3));
-    setLoadedAuthors(loadedAuthors + 3);
+    setAuthors(authors);
   };
 
   return (
