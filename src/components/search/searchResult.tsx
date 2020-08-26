@@ -24,9 +24,18 @@ const SearchResult = ({ data: { result, filter, vote } }) => {
 
     return "quoteAction";
   };
+
+  const animation = (index) => {
+    return {
+      style: {
+        animation: `fade-in-bottom 2s cubic-bezier(0.39, 0.575, 0.565, 1) ${index}s both`,
+      },
+    };
+  };
+
   return result
-    ? result.quotes.map((res: Quot) => (
-        <div key={res.id} className="fade-in-bottom quote">
+    ? result.quotes.map((res, index) => (
+        <div key={res.id} className=" quote" {...animation(index * 0.3)}>
           <div className="main autoMargin">
             <Quote quote={[res, filter]} />
             <Author quote={res} />

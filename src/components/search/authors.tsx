@@ -1,33 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Filter from "../filter/filter";
 import themeStyle from "../../hellpers/theme";
 
 const Authors = ({ data: { authors } }) => {
-  const [showAuthors, setAuthors] = useState(authors.slice(0, 4));
-
-  const loadMore = () => {
-    setAuthors(authors);
-  };
-
   return (
     <div className="authors">
-      {authors ? (
-        <div className="tags flexColumn ">
-          <h1>Author</h1>
-          {showAuthors.map((author) => (
-            <Filter key={author.name} tag={author} />
-          ))}
-        </div>
-      ) : null}
-      <div className="lineWarper">
+      <div className="tags flexColumn ">
+        <h1>Author</h1>
+
         <hr className={themeStyle(["Line"]).join(" ")} />
-        <div className="flexRow spaceAround">
-          <img
-            onClick={loadMore}
-            src="https://img.icons8.com/flat_round/64/000000/expand-arrow--v1.png"
-            alt="expand"
-          />
-        </div>
+
+        {authors.map((author, index) => (
+          <Filter key={author.name} data={author} index={index * 0.3} />
+        ))}
       </div>
     </div>
   );
