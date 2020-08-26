@@ -62,22 +62,22 @@ const SearchPage = () => {
   const typeheadCallback = (arg) => {
     const { tags } = arg;
     const { authors } = arg;
-    const filtteredAuthors = authors.filter((author) =>
-      filterAuthor(author.name, filter, author)
-    );
+    // const filtteredAuthors = authors.filter((author) =>
+    //   filterAuthor(author.name, filter, author)
+    // );
     const filteredTags = tags.filter((tag) => tag.name.match(filter));
 
-    if (filtteredAuthors.length !== 0) {
-      setAuthors(filtteredAuthors);
-    } else {
-      setAuthors(null);
-    }
+    setAuthors(
+      authors.filter((author) => filterAuthor(author.name, filter, author))
+    );
 
-    if (filteredTags.length !== 0) {
-      setTags(filteredTags);
-    } else {
-      setTags(null);
-    }
+    // if (filtteredAuthors.length !== 0) {
+    //   setAuthors(filtteredAuthors);
+    // } else {
+    //   setAuthors(null);
+    // }
+
+    setTags(filteredTags);
   };
 
   const handleSubmit = (e) => {
@@ -119,7 +119,7 @@ const SearchPage = () => {
           </div>
         ) : null}
       </div>
-      {authors ? <Authors data={{ authors }} /> : null}
+      <Authors data={{ authors }} />
       {tags ? <Tags data={{ tags }} /> : null}
     </div>
   );

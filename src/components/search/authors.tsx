@@ -1,10 +1,20 @@
-import React, { useState, useRef, useEffect } from "react";
+import React from "react";
 import Filter from "../filter/filter";
 import themeStyle from "../../hellpers/theme";
+import styleToggle from "../../hellpers/styleToggle";
 
 const Authors = ({ data: { authors } }) => {
-  return (
-    <div className="authors">
+  const firstStyle = "tracking-in-expand";
+  const secondStyle = "tracking-out-contract";
+  const logicSwitch = authors?.length !== 0 ? true : undefined;
+
+  return authors ? (
+    <div
+      className={[
+        "author",
+        styleToggle(secondStyle, firstStyle, logicSwitch),
+      ].join(" ")}
+    >
       <div className="tags flexColumn ">
         <h1>Author</h1>
 
@@ -15,6 +25,6 @@ const Authors = ({ data: { authors } }) => {
         ))}
       </div>
     </div>
-  );
+  ) : null;
 };
 export default Authors;
