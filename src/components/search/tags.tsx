@@ -3,9 +3,9 @@ import Filter from "../filter/filter";
 import themeStyle from "../../hellpers/theme";
 
 const Tags = ({ data: { tags } }) => {
-  return (
-    <div className="tags">
-      {tags ? (
+  if (tags !== null) {
+    return (
+      <div className="tags">
         <div className=" flexColumn ">
           <h1>Tags</h1>
           <hr className={themeStyle(["Line"]).join(" ")} />
@@ -13,9 +13,9 @@ const Tags = ({ data: { tags } }) => {
             <Filter key={tag.name} data={tag} index={index * 0.3} />
           ))}
         </div>
-      ) : null}
-    </div>
-  );
+      </div>
+    );
+  }
 };
 
 export default Tags;
