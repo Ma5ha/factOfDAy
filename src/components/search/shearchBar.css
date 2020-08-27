@@ -145,9 +145,17 @@
 }
 
 .filter {
+  padding: 5px;
   display: grid;
   grid-template-areas: "name number";
   grid-template-columns: 80% 20%;
+}
+
+.filter:hover {
+  background-color: coral;
+  border-bottom: solid;
+  opacity: 0.1;
+  cursor: pointer;
 }
 
 .name {
