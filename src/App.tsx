@@ -24,6 +24,8 @@ import isLoggedin from "./context/login";
 import themeStyle from "./hellpers/theme";
 
 import SearchPage from "./pages/shearchPage";
+import Authors from "./components/search/authors";
+import Author from "./pages/author";
 function App() {
   const [, setTheme] = useState(getTheme);
   const [user, setUser] = useState(loggedIn());
@@ -64,6 +66,9 @@ function App() {
             </Route>
             <Route exact path="/Search">
               <SearchPage />
+            </Route>
+            <Route exact path="/author/">
+              <Author />
             </Route>
           </Switch>
         </div>
