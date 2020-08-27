@@ -26,6 +26,8 @@ import themeStyle from "./hellpers/theme";
 import SearchPage from "./pages/shearchPage";
 import Authors from "./components/search/authors";
 import Author from "./pages/author";
+import AuthorPage from "./pages/author";
+import TagPage from "./pages/tagPage";
 function App() {
   const [, setTheme] = useState(getTheme);
   const [user, setUser] = useState(loggedIn());
@@ -68,7 +70,10 @@ function App() {
               <SearchPage />
             </Route>
             <Route exact path="/author/:name">
-              <Author />
+              <AuthorPage />
+            </Route>
+            <Route exact path="/tag/:name">
+              <TagPage />
             </Route>
           </Switch>
         </div>
