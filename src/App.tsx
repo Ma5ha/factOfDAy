@@ -67,7 +67,7 @@ function App() {
             <Route exact path="/Search">
               <SearchPage />
             </Route>
-            <Route exact path="/author/">
+            <Route exact path="/author/:name">
               <Author />
             </Route>
           </Switch>
