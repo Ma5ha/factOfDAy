@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./carousel.css";
+import Slide from "./slide";
 
 const Carousel = ({ children }) => {
   let enter = { className: "slideInRight" };
@@ -61,31 +62,3 @@ const Carousel = ({ children }) => {
 };
 
 export default Carousel;
-
-const Slide = ({ children, animation }) => {
-  const { enter, exit } = animation;
-
-  const [onDisplay, setOnDisplay] = useState<any>();
-  const [componentEntered, setComponent] = useState<boolean>();
-
-  useEffect(() => {
-    setComponent(true);
-  }, [children]);
-
-  const handlleExit = () => {
-    setComponent(false);
-    setOnDisplay(children);
-  };
-  return componentEntered ? (
-    <div
-      {...exit}
-      onAnimationEnd={() => {
-        handlleExit();
-      }}
-    >
-      {onDisplay}
-    </div>
-  ) : (
-    <div {...enter}>{onDisplay}</div>
-  );
-};
