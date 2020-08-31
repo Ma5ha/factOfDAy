@@ -72,7 +72,7 @@ function App() {
             <Route exact path="/author/:name">
               <AuthorPage />
             </Route>
-            <Route exact path="/tag/:name">
+            <Route exact path="/tag/:tag">
               <TagPage />
             </Route>
           </Switch>
