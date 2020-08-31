@@ -128,13 +128,13 @@
 .darkSeconBackground {
   background-color: #393e46;
   color: #00adb5;
-  transition: all 5s;
+  transition: all 2s;
 }
 
 .whiteSeconBackground {
   background-color: #d6e4f0;
   color: #272343;
-  transition: all 5s;
+  transition: all 2s;
 }
 
 .solidBottomBorder {
@@ -309,7 +309,7 @@ img {
 .dotRound {
   display: block;
   border-radius: 200px 200px 200px 200px;
-  background-color: red;
+
   width: 20px;
   height: 20px;
   margin: 2px;

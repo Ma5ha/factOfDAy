@@ -2,12 +2,14 @@ import React, { useState, useEffect, useRef } from "react";
 import "./carousel.css";
 import Slide from "./slide";
 import SlideDot from "./dotIndicator";
+import themeStyle from "../../hellpers/theme";
 
 const Carousel = ({ children }) => {
   let enter = { className: "slideInRight" };
   let exit = { className: "slideOutLeft" };
   let enterA = { className: "slideInLeft" };
   let exitA = { className: "slideOutRight" };
+
   const [animation, setAnimation] = useState(true);
   const [slide, setSlide] = useState(0);
 
@@ -33,13 +35,16 @@ const Carousel = ({ children }) => {
 
       return;
     }
+
     setSlide(slide - 1);
   };
 
   return (
     <div className="flexColumn flexCenter autoMargin">
       <div className="carousel autoMargin">
-        <div className="slideFrame  ">
+        <div
+          className={"slideFrame " + themeStyle(["CarouselSlide"]).join(" ")}
+        >
           <div className={"slideQuote autoMargin "}>
             {animation ? (
               <Slide animation={{ enter, exit }}>{children[slide]}</Slide>
@@ -51,12 +56,21 @@ const Carousel = ({ children }) => {
           </div>
           <div className={"slideQuote autoMargin "}></div>
 
-          <div className="slides">
+          <div
+            className={
+              "slides " + themeStyle(["CarouselSlideBottom"]).join(" ")
+            }
+          >
             {children.map((i, index) => (
               <SlideDot
-                key={index}
-                setSlide={() => {
-                  setSlide(index);
+                isSelected={slide === index}
+                key={i.key}
+                slideObject={{
+                  setSlide,
+                  index,
+                  setAnimation,
+                  animation,
+                  slide,
                 }}
               />
             ))}
@@ -64,8 +78,20 @@ const Carousel = ({ children }) => {
         </div>
       </div>
       <div className="buttons autoMargin">
-        <button onClick={previous}>prev</button>
-        <button onClick={next}>next</button>
+        <button
+          onClick={() => {
+            previous();
+          }}
+        >
+          prev
+        </button>
+        <button
+          onClick={() => {
+            next();
+          }}
+        >
+          next
+        </button>
       </div>
     </div>
   );

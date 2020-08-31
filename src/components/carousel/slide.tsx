@@ -1,16 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Children } from "react";
 const Slide = ({ children, animation }) => {
   const { enter, exit } = animation;
 
   const [onDisplay, setOnDisplay] = useState<any>();
-  const [componentEntered, setComponent] = useState<boolean>();
+  const [componentEntered, setComponentEntered] = useState<boolean>(true);
+
+  const componentUpdateLogic = () => {
+    if (children?.key !== onDisplay?.key) {
+      setComponentEntered(true);
+    }
+    return;
+  };
 
   useEffect(() => {
-    setComponent(true);
+    componentUpdateLogic();
   }, [children]);
 
   const handlleExit = () => {
-    setComponent(false);
+    setComponentEntered(false);
     setOnDisplay(children);
   };
   return componentEntered ? (

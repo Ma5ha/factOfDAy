@@ -17,7 +17,6 @@ const AuthorPage = () => {
   const [authorQuotes, setAuthorQuotes] = useState<any[]>();
 
   const auhtorCallback = (arg) => {
-    console.log(arg);
     setAuthorQuotes(arg.quotes);
   };
 

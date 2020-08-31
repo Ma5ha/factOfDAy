@@ -45,11 +45,11 @@
 }
 
 .slideInLeft {
-  animation: slideInLeft 1s
+  animation: slideInLeft 1s;
 }
 
 .slideOutRight {
-  animation: slideOutRight 1s
+  animation: slideOutRight 1s;
 }
 
 @keyframes slideOutRight {
@@ -78,4 +78,43 @@
     -webkit-transform: translate3d(-100%, 0, 0);
     transform: translate3d(0, 0, 0);
   }
+}
+
+.whiteCarouselSlide {
+  background-color: white;
+  transition: all 2s;
+}
+
+.darkCarouselSlide {
+  background-color: black;
+  transition: all 2s;
+}
+
+.whiteCarouselSlideBottom {
+  background-color: white;
+  transition: all 2s;
+}
+
+.darkCarouselSlideBottom {
+  background-color: black;
+
+  transition: all 2s;
+}
+
+.whiteDot {
+  background-color: black;
+  transition: all 2s;
+}
+
+.darkDot {
+  background-color: #00adb5;
+  transition: all 2s;
+}
+
+.whiteSelectedDot {
+  background-color: #1e56a0;
+}
+
+.darkSelectedDot {
+  background-color: grey;
 }
