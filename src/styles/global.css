@@ -276,3 +276,28 @@ img {
     opacity: 0;
   }
 }
+
+.slideFrame {
+  display: grid;
+  width: inherit;
+  height: inherit;
+  grid-template-areas: "quote" "slides";
+  grid-template-rows: 80% 20%;
+  background-color: tomato;
+  border: inset black;
+  overflow: hidden;
+}
+
+.slideQuote {
+  padding: 10px;
+  grid-area: quote;
+}
+
+.slides {
+  grid-area: slides;
+  background-color: teal;
+}
+
+.backgroundQuote {
+  background-color: tomato;
+}
