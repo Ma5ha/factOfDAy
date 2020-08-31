@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./carousel.css";
 import Slide from "./slide";
+import SlideDot from "./dotIndicator";
 
 const Carousel = ({ children }) => {
   let enter = { className: "slideInRight" };
@@ -50,7 +51,16 @@ const Carousel = ({ children }) => {
           </div>
           <div className={"slideQuote autoMargin "}></div>
 
-          <div className="slides"></div>
+          <div className="slides">
+            {children.map((i, index) => (
+              <SlideDot
+                key={index}
+                setSlide={() => {
+                  setSlide(index);
+                }}
+              />
+            ))}
+          </div>
         </div>
       </div>
       <div className="buttons autoMargin">
