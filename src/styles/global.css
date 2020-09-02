@@ -65,8 +65,7 @@
 }
 
 .fade-in-bottom {
-  -webkit-animation: fade-in-bottom 2s cubic-bezier(0.39, 0.575, 0.565, 1) 1s
-    both;
+  -webkit-animation: fade-in-bottom 2s cubic-bezier(0.39, 0.575, 0.565, 1) 1s both;
   animation: fade-in-bottom 2s cubic-bezier(0.39, 0.575, 0.565, 1) 1s both;
 }
 
@@ -187,8 +186,7 @@ img {
 }
 
 .tracking-in-expand {
-  -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1)
-    both;
+  -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
   animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
 }
 
@@ -232,10 +230,8 @@ img {
 }
 
 .tracking-out-contract {
-  -webkit-animation: tracking-out-contract 0.7s
-    cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
-  animation: tracking-out-contract 0.7s cubic-bezier(0.55, 0.085, 0.68, 0.53)
-    both;
+  -webkit-animation: tracking-out-contract 0.7s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: tracking-out-contract 0.7s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 
 /* ----------------------------------------------
@@ -309,8 +305,15 @@ img {
 .dotRound {
   display: block;
   border-radius: 200px 200px 200px 200px;
-
   width: 20px;
   height: 20px;
   margin: 2px;
+}
+
+.round {
+  border-radius: 200px 200px 200px 200px;
+}
+
+.buttons {
+  margin-top: 5px;
 }

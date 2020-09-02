@@ -4,4 +4,5 @@ import token from "../hellpers/isLogged";
 export const Heeaders = {
   Authorization: ` Token token=${api.key}`,
   "User-Token": token(),
+  "Access-Control-Allow-Origin": "*",
 };

@@ -79,6 +79,7 @@ const Carousel = ({ children }) => {
       </div>
       <div className="buttons autoMargin">
         <button
+          className={`round ${themeStyle(["Button"]).join("")}`}
           onClick={() => {
             previous();
           }}
@@ -86,6 +87,7 @@ const Carousel = ({ children }) => {
           prev
         </button>
         <button
+          className={`round ${themeStyle(["Button"]).join("")}`}
           onClick={() => {
             next();
           }}
