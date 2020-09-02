@@ -24,7 +24,10 @@ const SearchPage = () => {
   const [lastPage, setLastPage] = useState<unknown>();
 
   let Config = {
-    headers: { ...Heeaders, "User-Token": token() },
+    headers: {
+      ...Heeaders,
+      "User-Token": token(),
+    },
     params: { filter, page },
   };
 
