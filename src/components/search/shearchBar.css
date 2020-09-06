@@ -145,6 +145,7 @@
 }
 
 .filter {
+  width: 80%;
   padding: 5px;
   display: grid;
   grid-template-areas: "name number";
@@ -152,7 +153,6 @@
 }
 
 .filter:hover {
-  background-color: coral;
   border-bottom: solid;
   opacity: 0.1;
   cursor: pointer;
@@ -163,5 +163,10 @@
 }
 
 .number {
-  grid-area: number
+  grid-area: number;
+  text-align: right;
+}
+
+a.none {
+  color: inherit;
 }

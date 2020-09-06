@@ -2,7 +2,8 @@ import React from "react";
 import Filter from "../filter/filter";
 import themeStyle from "../../hellpers/theme";
 import styleToggle from "../../hellpers/styleToggle";
-import { Link } from "react-router-dom";
+import AnimationList from "../animation/animationList";
+import ListItem from "../animation/listItem";
 
 const Authors = ({ data: { authors } }) => {
   const firstStyle = "tracking-in-expand";
@@ -20,16 +21,13 @@ const Authors = ({ data: { authors } }) => {
         <h1>Author</h1>
 
         <hr className={themeStyle(["Line"]).join(" ")} />
-
-        {authors.map((author, index) => (
-          <Link
-            to={`author/${author.name}`}
-            className="filter"
-            key={author.name}
-          >
-            <Filter key={author.name} data={author} index={index * 0.3} />
-          </Link>
-        ))}
+        <AnimationList timeout={2000}>
+          {authors.map((author, index) => (
+            <ListItem key={author.name}>
+              <Filter key={author.name} data={author} />
+            </ListItem>
+          ))}
+        </AnimationList>
       </div>
     </div>
   ) : null;
