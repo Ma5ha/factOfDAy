@@ -1,8 +1,35 @@
 .quoteBox {
-    width: 30vw;
-    padding: auto;
+  width: 80vw;
+  padding: 5px;
+  border-radius: 80px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family: "Akronim";
+  animation: 5s infinite quoteBox;
 }
 
 h1 {
-    margin: auto;
+  margin: auto;
+}
+
+.quoteStyle {
+  font-style: italic;
+  font-size: 40px;
+}
+
+@keyframes quoteBox {
+  from {
+    text-shadow: 1px 0px 1px;
+    box-shadow: 3px 5px 1px;
+  }
+  50% {
+    text-shadow: 1px 0px 13px;
+    box-shadow: 3px 9px 10px;
+  }
+  to {
+    text-shadow: 1px 0px 1px;
+    box-shadow: 3px 5px 1px;
+  }
+}
+.click {
+  cursor: pointer;
 }

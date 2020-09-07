@@ -16,6 +16,7 @@ import arrayToString from "../../hellpers/arrayToString";
 import Author from "./author";
 
 import spiner from "../../assets/spiner.gif";
+import { Link } from "react-router-dom";
 
 const QuoteController = () => {
   const [quoteState, setQuote] = useState<quote>();
@@ -27,6 +28,14 @@ const QuoteController = () => {
       setQuote
     );
   }, []);
+
+  const get = () => {
+    getRequest<quote>(
+      api.base + api.qotd,
+
+      setQuote
+    );
+  };
 
   if (quoteState)
     return (
@@ -41,8 +50,15 @@ const QuoteController = () => {
       >
         <div className={arrayToString([flexCenter, flexColumn])}>
           <h1 className={textCenter}>Quote of Day</h1>
-          <Quote quote={[quoteState.quote, ""]} />
-          <Author quote={quoteState.quote} />
+          <div className="click" onClick={get}>
+            <Quote style={"quoteStyle"} quote={[quoteState.quote, ""]} />
+          </div>
+          <Link
+            className="none click autoMargin"
+            to={`author/${quoteState.quote.author}`}
+          >
+            <Author quote={quoteState.quote} />
+          </Link>
         </div>
       </div>
     );
