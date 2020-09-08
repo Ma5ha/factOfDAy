@@ -18,6 +18,7 @@ import Author from "./author";
 import spiner from "../../assets/spiner.gif";
 import { Link } from "react-router-dom";
 import { join } from "path";
+import themeStyle from "../../hellpers/theme";
 
 const QuoteController = () => {
   const [quoteState, setQuote] = useState<quote>();
@@ -44,6 +45,7 @@ const QuoteController = () => {
         <div className={arrayToString([flexCenter, flexColumn])}>
           <h1 className={[textCenter, "quoteBox"].join(" ")}>Quote of Day</h1>
           <div className="click" onClick={get}>
+            <div className={"mask " + themeStyle(["SeconBackground"])}></div>
             <Quote
               style={"quoteStyle quoteGlow"}
               quote={[quoteState.quote, ""]}

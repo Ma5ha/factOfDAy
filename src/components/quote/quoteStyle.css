@@ -1,5 +1,6 @@
 .quoteBox {
   width: 80vw;
+  border-top: solid;
   padding: 5px;
   border-radius: 80px;
   font-family: "Comic Sans MS", cursive, sans-serif;
@@ -8,6 +9,7 @@
 }
 
 .quoteGlow {
+  height: 150px;
   width: 80vw;
   padding: 5px;
   font-family: "Comic Sans MS", cursive, sans-serif;
@@ -66,14 +68,19 @@ h1 {
 
 @keyframes textTyper {
   from {
-    width: 0px;
-    opacity: 0;
+    width: 0vw;
+    opacity: 1;
   }
 }
 
 .mask {
-  width: 100%;
+  margin-top: 20px;
+  z-index: 1;
+  padding: 5px;
+  height: 200px;
+  position: absolute;
+  width: 100vw;
+  right: 0;
   overflow: hidden;
-  background-color: hotpink;
-  animation: textTyper 8s steps(60, end) infinite;
+  animation: textTyper 10s reverse steps(200, end) forwards;
 }
