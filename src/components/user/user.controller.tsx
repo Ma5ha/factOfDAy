@@ -105,22 +105,29 @@ const UserCotnroller = () => {
         </button>
         <br></br>
       </form>
-
-      {signup ? (
-        <button
-          onClick={() => setSignup(!signup)}
-          className={styler(buttonStyle)}
-        >
-          Login
-        </button>
-      ) : (
-        <button
-          onClick={() => setSignup(!signup)}
-          className={styler(buttonStyle)}
-        >
-          SignUp
-        </button>
-      )}
+      <div className="formSwitch">
+        {signup ? (
+          <div className="formMessage">
+            <h3>
+              You have account?{" "}
+              <span onClick={() => setSignup(!signup)} className="clickHere">
+                Click here
+              </span>{" "}
+              to login!
+            </h3>
+          </div>
+        ) : (
+          <div className="formMessage">
+            <h3>
+              You don`t have account?{" "}
+              <span onClick={() => setSignup(!signup)} className="clickHere">
+                Click here
+              </span>{" "}
+              to signup!
+            </h3>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
