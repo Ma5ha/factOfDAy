@@ -16,6 +16,7 @@ import ErrorMessage from "./error";
 import isValidName from "./helpers/validName";
 import isPasswordValid from "./helpers/isValidPassword";
 import isValidEmail from "./helpers/validEmail";
+import themeStyle from "../../hellpers/theme";
 
 const UserCotnroller = () => {
   const { Authorization } = Heeaders;
@@ -87,10 +88,14 @@ const UserCotnroller = () => {
   };
 
   return (
-    <div style={{ margin: "auto" }}>
+    <div className="formMargin">
       <ErrorMessage data={errorMessage} />
 
-      <form onSubmit={handlleSubmit} style={{ margin: "auto" }}>
+      <form
+        className={themeStyle(["Form"]).join("")}
+        onSubmit={handlleSubmit}
+        style={{ margin: "auto" }}
+      >
         <Login name={{ bindName, login }} password={{ bindPassword, password }}>
           {signup ? <SignUp email={{ bindEmail, email }} /> : null}
         </Login>

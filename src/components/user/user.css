@@ -1,11 +1,18 @@
 input {
   opacity: 1;
   width: 500px;
-  height: 20px;
+  height: 30px;
   text-align: center;
+  border-radius: 10px;
+}
+
+.label {
+  margin-bottom: 10px;
 }
 
 form {
+  display: flex;
+  flex-direction: column;
   text-align: center;
 }
 
@@ -15,27 +22,41 @@ button {
 }
 
 .darkInput {
-  border: solid #00adb5;
+  margin: auto;
+  outline: none;
+  /* border: solid #00adb5; */
   background-color: black;
   color: #00adb5;
   transition: all 2s;
+  border: none;
+  border-bottom: solid #00adb5;
 }
 
 .darkButton {
+  cursor: pointer;
+  font-size: 20px;
+  width: 200px;
   background-color: black;
   color: #00adb5 !important;
   border: solid #00adb5;
+
   transition: all 2s;
 }
 
 .whiteInput {
-  border: solid #163172;
-  background-color: white;
+  margin: auto;
+  border: none;
+  border-bottom: solid #163172;
+  outline: none;
+  background-color: #f6f6f6;
   color: #163172;
   transition: all 2s;
 }
 
 .whiteButton {
+  cursor: pointer;
+  font-size: 20px;
+  width: 200px;
   background-color: #163172;
   color: #d6e4f0;
   border: solid #00adb5;
@@ -48,4 +69,32 @@ button {
 
 .darkInput::placeholder {
   color: #00adb5;
+}
+
+.solidBorder {
+  border: solid;
+  color: black;
+  padding: 10px;
+}
+
+.darkForm {
+  height: 400px;
+  border: solid;
+  color: black;
+  padding: 10px;
+  background-color: black;
+  transition: all 2s;
+}
+
+.whiteForm {
+  height: 400px;
+  border: solid;
+  color: #f6f6f6;
+  padding: 10px;
+  background-color: #f6f6f6;
+  transition: all 2s;
+}
+
+.formMargin {
+  padding: 100px;
 }
