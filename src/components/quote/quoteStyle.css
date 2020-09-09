@@ -9,7 +9,6 @@
 }
 
 .quoteGlow {
-  height: 150px;
   width: 80vw;
   padding: 5px;
   font-family: "Comic Sans MS", cursive, sans-serif;
@@ -66,21 +65,19 @@ h1 {
   width: 100%;
 }
 
-@keyframes textTyper {
-  from {
-    width: 0vw;
-    opacity: 1;
-  }
-}
-
-.mask {
-  margin-top: 20px;
-  z-index: 1;
-  padding: 5px;
-  height: 200px;
-  position: absolute;
-  width: 100vw;
-  right: 0;
-  overflow: hidden;
-  animation: textTyper 10s reverse steps(200, end) forwards;
+.quotes {
+  box-shadow: 0 0 0 2px skyblue;
+  margin-top: 15px;
+  border: inset;
+  border-top: none;
+  border-left: none;
+  /* z-index: 0; */
+  border-radius: 20%; /* box-shadow: 0 0 0 2px skyblue; */
+  margin-top: 15px;
+  /* transform: skew(45deg, 0deg); */
+  /* background: rgb(0, 0, 0); */
+  /* background: linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(57, 62, 70, 1) 16% */
 }

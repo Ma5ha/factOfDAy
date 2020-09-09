@@ -44,19 +44,20 @@ const QuoteController = () => {
       <div className={arrayToString([flexColumn, flexCenter, autoMargin])}>
         <div className={arrayToString([flexCenter, flexColumn])}>
           <h1 className={[textCenter, "quoteBox"].join(" ")}>Quote of Day</h1>
-          <div className="click" onClick={get}>
-            <div className={"mask " + themeStyle(["SeconBackground"])}></div>
-            <Quote
-              style={"quoteStyle quoteGlow"}
-              quote={[quoteState.quote, ""]}
-            />
+          <div className={"quotes " + themeStyle(["SeconBackground"])}>
+            <div className="click" onClick={get}>
+              <Quote
+                style={"quoteStyle quoteGlow"}
+                quote={[quoteState.quote, ""]}
+              />
+            </div>
+            <Link
+              className="none click autoMargin acronimFont"
+              to={`author/${quoteState.quote.author}`}
+            >
+              <Author quote={quoteState.quote} />
+            </Link>
           </div>
-          <Link
-            className="none click autoMargin acronimFont"
-            to={`author/${quoteState.quote.author}`}
-          >
-            <Author quote={quoteState.quote} />
-          </Link>
         </div>
       </div>
     );
