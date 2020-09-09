@@ -110,7 +110,10 @@ const UserCotnroller = () => {
           <div className="formMessage">
             <h3>
               You have account?{" "}
-              <span onClick={() => setSignup(!signup)} className="clickHere">
+              <span
+                onClick={() => setSignup(!signup)}
+                className={"clickHere " + themeStyle(["ClickHere"])}
+              >
                 Click here
               </span>{" "}
               to login!
@@ -120,7 +123,10 @@ const UserCotnroller = () => {
           <div className="formMessage">
             <h3>
               You don`t have account?{" "}
-              <span onClick={() => setSignup(!signup)} className="clickHere">
+              <span
+                onClick={() => setSignup(!signup)}
+                className={"clickHere " + themeStyle(["ClickHere"])}
+              >
                 Click here
               </span>{" "}
               to signup!
