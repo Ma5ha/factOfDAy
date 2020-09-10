@@ -31,7 +31,7 @@ const QuoteController = () => {
     );
   }, []);
 
-  const get = () => {
+  const getQuoteRandom = () => {
     getRequest<quote>(
       api.base + api.qotd,
 
@@ -51,14 +51,20 @@ const QuoteController = () => {
               "quoteBox",
             ])}
           >
-            <Quote quote={[quoteState.quote, ""]} />
+            <div className="click" onClick={getQuoteRandom}>
+              <Quote quote={[quoteState.quote, ""]} />
+            </div>
           </div>
 
           <div className={"line " + themeStyle(["LineColor"])}>
             <div></div>
           </div>
         </div>
-        <Author quote={quoteState.quote} />
+
+        <Link className="none click" to={`author/${quoteState.quote.author}`}>
+          <Author quote={quoteState.quote} />
+          <hr className="authorBottomLine" />
+        </Link>
       </div>
     );
   return <img className="autoMargin" src={spiner} alt="ssasa" width="50px" />;
