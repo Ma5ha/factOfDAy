@@ -26,8 +26,8 @@ const Login = ({
 
   return (
     <>
-      <label>Name</label>
       <br></br>
+
       <input
         className={themeStyle(["Input"])}
         {...bindName}
@@ -55,7 +55,7 @@ const Login = ({
 
       <br></br>
       {children}
-      <label>Password</label>
+
       <br></br>
       <input
         className={themeStyle(["Input"])}

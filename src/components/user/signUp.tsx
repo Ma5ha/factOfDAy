@@ -12,7 +12,6 @@ const SignUp = ({ email: { bindEmail, email } }) => {
 
   return (
     <>
-      <label>Email</label>
       <br></br>
       <input
         className={themeStyle(["Input"])}

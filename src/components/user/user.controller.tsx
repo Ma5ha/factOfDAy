@@ -16,6 +16,7 @@ import ErrorMessage from "./error";
 import isValidName from "./helpers/validName";
 import isPasswordValid from "./helpers/isValidPassword";
 import isValidEmail from "./helpers/validEmail";
+import themeStyle from "../../hellpers/theme";
 
 const UserCotnroller = () => {
   const { Authorization } = Heeaders;
@@ -87,10 +88,14 @@ const UserCotnroller = () => {
   };
 
   return (
-    <div style={{ margin: "auto" }}>
+    <div className="formMargin">
       <ErrorMessage data={errorMessage} />
 
-      <form onSubmit={handlleSubmit} style={{ margin: "auto" }}>
+      <form
+        className={themeStyle(["Form"]).join("")}
+        onSubmit={handlleSubmit}
+        style={{ margin: "auto" }}
+      >
         <Login name={{ bindName, login }} password={{ bindPassword, password }}>
           {signup ? <SignUp email={{ bindEmail, email }} /> : null}
         </Login>
@@ -100,22 +105,35 @@ const UserCotnroller = () => {
         </button>
         <br></br>
       </form>
-
-      {signup ? (
-        <button
-          onClick={() => setSignup(!signup)}
-          className={styler(buttonStyle)}
-        >
-          Login
-        </button>
-      ) : (
-        <button
-          onClick={() => setSignup(!signup)}
-          className={styler(buttonStyle)}
-        >
-          SignUp
-        </button>
-      )}
+      <div className="formSwitch">
+        {signup ? (
+          <div className="formMessage">
+            <h3>
+              You have account?{" "}
+              <span
+                onClick={() => setSignup(!signup)}
+                className={"clickHere " + themeStyle(["ClickHere"])}
+              >
+                Click here
+              </span>{" "}
+              to login!
+            </h3>
+          </div>
+        ) : (
+          <div className="formMessage">
+            <h3>
+              You don`t have account?{" "}
+              <span
+                onClick={() => setSignup(!signup)}
+                className={"clickHere " + themeStyle(["ClickHere"])}
+              >
+                Click here
+              </span>{" "}
+              to signup!
+            </h3>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

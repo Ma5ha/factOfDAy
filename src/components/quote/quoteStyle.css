@@ -1,8 +1,197 @@
-.quoteBox {
-    width: 30vw;
-    padding: auto;
+/* .quoteBox {
+  width: 80vw;
+  border-top: solid;
+  padding: 5px;
+  border-radius: 80px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family: "Akronim";
+  animation: 5s infinite quoteBox;
+} */
+
+.quoteGlow {
+  width: 80vw;
+  padding: 5px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family: "Akronim";
+  animation: 5s infinite quoteGlow;
 }
 
 h1 {
-    margin: auto;
+  margin: auto;
+}
+
+.quoteStyle {
+  font-style: italic;
+  font-size: 40px;
+}
+
+.acronimFont {
+  font-family: "Akronim";
+}
+
+@keyframes quoteGlow {
+  from {
+    text-shadow: 1px 0px 1px;
+  }
+  50% {
+    text-shadow: 1px 0px 13px;
+  }
+  to {
+    text-shadow: 1px 0px 1px;
+  }
+}
+
+@keyframes quoteBox {
+  from {
+    text-shadow: 1px 0px 1px;
+    box-shadow: 3px 5px 1px;
+  }
+  50% {
+    text-shadow: 1px 0px 13px;
+    box-shadow: 3px 9px 10px;
+  }
+  to {
+    text-shadow: 1px 0px 1px;
+    box-shadow: 3px 5px 1px;
+  }
+}
+
+.click {
+  cursor: pointer;
+}
+
+.textType {
+  overflow: hidden;
+  width: 100%;
+}
+
+.quotes {
+  box-shadow: 0 0 0 2px skyblue;
+  margin-top: 15px;
+  border: inset;
+  border-top: none;
+  border-left: none;
+  /* z-index: 0; */
+  border-radius: 20%; /* box-shadow: 0 0 0 2px skyblue; */
+  margin-top: 15px;
+  /* transform: skew(45deg, 0deg); */
+  /* background: rgb(0, 0, 0); */
+  /* background: linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(57, 62, 70, 1) 16% */
+}
+
+/* new styles */
+
+.quoteBox {
+  box-shadow: 122px -44px 55px -60px;
+  border-radius: 28%;
+  justify-content: center;
+  border: solid 0.1em;
+  font-family: "Akronim";
+  font-size: 2em;
+  max-width: 60%;
+  max-height: 70%;
+  min-width: 60%;
+  min-height: 70%;
+  border-bottom-left-radius: 24%;
+  border-bottom-right-radius: 37%;
+}
+
+.quoteBox p {
+  text-shadow: 11px -25px 7px;
+}
+
+/* .quoteBox p {
+  background: -webkit-linear-gradient(
+    45deg,
+    #00adb5 20%,
+    black 80%,
+    violet 50%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+} */
+
+/* .curvedLine {
+  content: "  ";
+  width: 174px;
+  color: red;
+  background-color: red;
+
+  height: 10px;
+  border: none;
+  border-bottom: solid;
+} */
+
+/* .warperBox::after {
+  position: relative;
+  margin: auto;
+  content: "";
+  width: 59px;
+
+  height: 200px;
+  border: solid;
+  border-bottom: none;
+  border-left: none;
+
+  right: 20%;
+  height: 40px;
+  border-top-right-radius: 64px;
+  bottom: 11%;
+} */
+.warperBox {
+  height: calc(70vw * 3 / 4);
+  width: 80vw;
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+}
+
+.line {
+  position: relative;
+  content: " ";
+  height: 18.7%;
+  width: 33%;
+
+  border: none;
+  border-top: solid 0.3em;
+  bottom: 5.4%;
+  left: 31%;
+  z-index: 1;
+}
+.whiteLineColor {
+  color: #d6e4f0;
+  transition: 2s;
+}
+.darkLineColor {
+  color: #393e46;
+  transition: 2s;
+}
+
+.line div {
+  position: relative;
+  bottom: 5%;
+
+  width: 40%;
+  height: 93%;
+  border: none;
+  border-top: solid 0.2em;
+  border-right: solid 1em;
+  border-top-right-radius: 100%;
+  z-index: 2;
+}
+.whiteLineColor div {
+  color: black;
+  transition: all 2s;
+}
+.darkLineColor div {
+  color: #00adb5;
+  transition: 2s;
+}
+
+.authorBottomLine {
+  border-bottom: solid 0.3em;
+  width: 30%;
 }

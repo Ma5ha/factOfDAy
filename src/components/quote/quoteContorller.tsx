@@ -16,6 +16,9 @@ import arrayToString from "../../hellpers/arrayToString";
 import Author from "./author";
 
 import spiner from "../../assets/spiner.gif";
+import { Link } from "react-router-dom";
+import { join } from "path";
+import themeStyle from "../../hellpers/theme";
 
 const QuoteController = () => {
   const [quoteState, setQuote] = useState<quote>();
@@ -28,25 +31,65 @@ const QuoteController = () => {
     );
   }, []);
 
+  const getQuoteRandom = () => {
+    getRequest<quote>(
+      api.base + api.qotd,
+
+      setQuote
+    );
+  };
+
   if (quoteState)
     return (
-      <div
-        className={arrayToString([
-          flexColumn,
-          flexCenter,
-          "fullSolidBorder",
-          autoMargin,
-          "quoteBox",
-        ])}
-      >
-        <div className={arrayToString([flexCenter, flexColumn])}>
-          <h1 className={textCenter}>Quote of Day</h1>
-          <Quote quote={[quoteState.quote, ""]} />
-          <Author quote={quoteState.quote} />
+      <div>
+        <div className="warperBox">
+          <div
+            className={arrayToString([
+              flexColumn,
+              flexCenter,
+              autoMargin,
+              "quoteBox",
+            ])}
+          >
+            <div className="click" onClick={getQuoteRandom}>
+              <Quote quote={[quoteState.quote, ""]} />
+            </div>
+          </div>
+
+          <div className={"line " + themeStyle(["LineColor"])}>
+            <div></div>
+          </div>
         </div>
+
+        <Link className="none click" to={`author/${quoteState.quote.author}`}>
+          <Author quote={quoteState.quote} />
+          <hr className="authorBottomLine" />
+        </Link>
       </div>
     );
   return <img className="autoMargin" src={spiner} alt="ssasa" width="50px" />;
 };
 
 export default QuoteController;
+
+{
+  /* <div className={arrayToString([flexColumn, flexCenter, autoMargin])}>
+        <div className={arrayToString([flexCenter, flexColumn])}>
+          <h1 className={[textCenter, "quoteBox"].join(" ")}>Quote of Day</h1>
+          <div className={"quotes " + themeStyle(["SeconBackground"])}>
+            <div className="click" onClick={get}>
+              <Quote
+                style={"quoteStyle quoteGlow"}
+                quote={[quoteState.quote, ""]}
+              />
+            </div>
+            <Link
+              className="none click autoMargin acronimFont"
+              to={`author/${quoteState.quote.author}`}
+            >
+              <Author quote={quoteState.quote} />
+            </Link>
+          </div>
+        </div>
+      </div> */
+}
