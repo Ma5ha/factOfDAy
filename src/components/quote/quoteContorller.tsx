@@ -53,7 +53,10 @@ const QuoteController = () => {
           >
             <Quote quote={[quoteState.quote, ""]} />
           </div>
-          <div className="line"></div>
+
+          <div className={"line " + themeStyle(["LineColor"])}>
+            <div></div>
+          </div>
         </div>
         <Author quote={quoteState.quote} />
       </div>
