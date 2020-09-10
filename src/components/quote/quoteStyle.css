@@ -1,4 +1,4 @@
-.quoteBox {
+/* .quoteBox {
   width: 80vw;
   border-top: solid;
   padding: 5px;
@@ -6,7 +6,7 @@
   font-family: "Comic Sans MS", cursive, sans-serif;
   font-family: "Akronim";
   animation: 5s infinite quoteBox;
-}
+} */
 
 .quoteGlow {
   width: 80vw;
@@ -80,4 +80,77 @@ h1 {
     45deg,
     rgba(0, 0, 0, 1) 0%,
     rgba(57, 62, 70, 1) 16% */
+}
+
+/* new styles */
+
+.quoteBox {
+  height: 80vh;
+  border-radius: 20px;
+  justify-content: center;
+  border: solid;
+  font-family: "Akronim";
+  font-size: 40px;
+  max-width: 60%;
+  max-height: 70%;
+  min-width: 60%;
+  min-height: 70%;
+}
+
+.quoteBox p {
+  background: -webkit-linear-gradient(
+    45deg,
+    #00adb5 20%,
+    black 80%,
+    violet 50%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.line {
+  position: relative;
+  content: " ";
+  /* height: 10px; */
+  width: 100px;
+  color: #393e46;
+  border: none;
+  border-bottom: solid;
+  bottom: 5.5%;
+  left: 29%;
+}
+
+/* .curvedLine {
+  content: "  ";
+  width: 174px;
+  color: red;
+  background-color: red;
+
+  height: 10px;
+  border: none;
+  border-bottom: solid;
+} */
+
+.warperBox {
+  height: 100vh;
+  width: 80vw;
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+}
+.warperBox::after {
+  position: relative;
+  margin: auto;
+  content: "";
+  width: 59px;
+
+  height: 200px;
+  border: solid;
+  border-bottom: none;
+  border-left: none;
+
+  right: 20%;
+  height: 40px;
+  border-top-right-radius: 64px;
+  bottom: 11%;
 }

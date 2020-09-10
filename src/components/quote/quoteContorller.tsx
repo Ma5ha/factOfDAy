@@ -41,7 +41,30 @@ const QuoteController = () => {
 
   if (quoteState)
     return (
-      <div className={arrayToString([flexColumn, flexCenter, autoMargin])}>
+      <div>
+        <div className="warperBox">
+          <div
+            className={arrayToString([
+              flexColumn,
+              flexCenter,
+              autoMargin,
+              "quoteBox",
+            ])}
+          >
+            <Quote quote={[quoteState.quote, ""]} />
+          </div>
+          <div className="line"></div>
+        </div>
+        <Author quote={quoteState.quote} />
+      </div>
+    );
+  return <img className="autoMargin" src={spiner} alt="ssasa" width="50px" />;
+};
+
+export default QuoteController;
+
+{
+  /* <div className={arrayToString([flexColumn, flexCenter, autoMargin])}>
         <div className={arrayToString([flexCenter, flexColumn])}>
           <h1 className={[textCenter, "quoteBox"].join(" ")}>Quote of Day</h1>
           <div className={"quotes " + themeStyle(["SeconBackground"])}>
@@ -59,9 +82,5 @@ const QuoteController = () => {
             </Link>
           </div>
         </div>
-      </div>
-    );
-  return <img className="autoMargin" src={spiner} alt="ssasa" width="50px" />;
-};
-
-export default QuoteController;
+      </div> */
+}
