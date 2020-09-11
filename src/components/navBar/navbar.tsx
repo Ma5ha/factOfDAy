@@ -22,13 +22,13 @@ const NavBar = ({ children }) => {
 
   return (
     <nav
-      style={{ marginBottom: "0px" }}
       className={arrayToString([
         "solidBottomBorder",
         "bottomMarginNav",
         spaceBetween,
         flexRow,
         flexCenter,
+        "nav",
 
         ...themeStyle(["BackGround", "Border"]),
       ])}
