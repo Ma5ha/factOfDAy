@@ -28,57 +28,69 @@ import Authors from "./components/search/authors";
 import Author from "./pages/author";
 import AuthorPage from "./pages/author";
 import TagPage from "./pages/tagPage";
+import Modal from "./components/modal/modal";
+import ModalButton from "./components/modal/modalButton";
 function App() {
   const [, setTheme] = useState(getTheme);
   const [user, setUser] = useState(loggedIn());
+  const [showModal, setShowModal] = useState(false);
   return (
-    <isLoggedin.Provider
-      value={{
-        user,
-        set: () => {
-          setUser(loggedIn());
-        },
-      }}
+    <div
+      className={arrayToString([
+        flexColumn,
+        flexCenter,
+        autoMargin,
+        "fullPage",
+        ...themeStyle(["SeconBackground"]),
+      ])}
     >
-      <Router>
-        <NavBar>
-          <ToggleButton data={setTheme} />
-        </NavBar>
-        <div
-          className={arrayToString([
-            flexColumn,
-            flexCenter,
-            autoMargin,
-            "fullPage",
-            ...themeStyle(["SeconBackground"]),
-          ])}
-        >
-          <Switch>
-            <Route exact path="/">
-              <Redirect to="/Home" />
-            </Route>
-            <Route exact path="/Home">
-              <HomePage />
-            </Route>
-            <Route exact path="/Sign in">
-              <AuthPage />
-            </Route>
-            <Route exact path="/Profile">
-              <PrivateRoute></PrivateRoute>
-            </Route>
-            <Route exact path="/Search">
-              <SearchPage />
-            </Route>
-            <Route exact path="/author/:name">
-              <AuthorPage />
-            </Route>
-            <Route exact path="/tag/:tag">
-              <TagPage />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
-    </isLoggedin.Provider>
+      <isLoggedin.Provider
+        value={{
+          user,
+          set: () => {
+            setUser(loggedIn());
+          },
+        }}
+      >
+        {showModal ? <Modal /> : null}
+
+        <Router>
+          <NavBar>
+            <ToggleButton data={setTheme} />
+          </NavBar>
+          <div>
+            <ModalButton
+              clickHandler={() => {
+                setShowModal(!showModal);
+              }}
+            />
+            <Switch>
+              <Route exact path="/">
+                <Redirect to="/Home" />
+              </Route>
+              <Route exact path="/Home">
+                <HomePage />
+              </Route>
+              <Route exact path="/Sign in">
+                <AuthPage />
+              </Route>
+              <Route exact path="/Profile">
+                <PrivateRoute></PrivateRoute>
+              </Route>
+              <Route exact path="/Search">
+                <SearchPage />
+              </Route>
+              <Route exact path="/author/:name">
+                <AuthorPage />
+              </Route>
+              <Route exact path="/tag/:tag">
+                <TagPage />
+              </Route>
+            </Switch>
+          </div>
+        </Router>
+      </isLoggedin.Provider>
+    </div>
   );
 }
 

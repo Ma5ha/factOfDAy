@@ -152,8 +152,9 @@
 }
 
 .fullPage {
-  min-height: calc(100vh);
-  max-height: 100%;
+  position: relative;
+
+  min-height: 100vh;
 }
 
 .errors {

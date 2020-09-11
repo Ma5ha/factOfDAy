@@ -1,0 +1,17 @@
+.darkModalButton {
+  background-color: red;
+  border-radius: 20%;
+  position: absolute;
+  bottom: 10em;
+  right: 10%;
+  right: 0;
+  float: right;
+  width: 5em;
+}
+
+.darkModal {
+  position: absolute;
+}
+.modalWarper {
+  position: absolute;
+}
