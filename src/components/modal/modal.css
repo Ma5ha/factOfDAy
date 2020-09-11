@@ -1,17 +1,41 @@
 .darkModalButton {
-  background-color: red;
-  border-radius: 20%;
-  position: absolute;
-  bottom: 10em;
-  right: 10%;
-  right: 0;
-  float: right;
-  width: 5em;
+  background-color: black;
 }
 
-.darkModal {
-  position: absolute;
+.whiteModalButton {
+  background-color: #163172;
 }
+.modalButton {
+  color: inherit;
+  outline: none;
+  border-radius: 66%;
+  position: absolute;
+  right: 10%;
+  right: 35px;
+  float: right;
+  width: 3em;
+}
+
+.whiteModal {
+}
+
 .modalWarper {
   position: absolute;
+  display: flex;
+  min-height: 100vh;
+  min-width: 100%;
+  margin: auto;
+  justify-content: center;
+}
+.modal {
+  position: absolute;
+  /* top: 20%;
+  right: 50%; */
+  margin: auto;
+  width: 500px;
+  height: 500px;
+  background-color: white;
+  z-index: 5;
+}
+.darkModal {
 }

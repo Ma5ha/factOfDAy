@@ -3,10 +3,14 @@ import themeStyle from "../../hellpers/theme";
 
 import "./modal.css";
 
-const Modal = () => {
-  const modal = themeStyle(["Modal"]).join("");
+const Modal = ({ handlleClick }) => {
+  const modal = `${themeStyle(["Modal"]).join("")} modal`;
 
-  return <div className={modal}>mashasha</div>;
+  return (
+    <div onClick={handlleClick} className="modalWarper">
+      <div className={modal}>mashasha</div>
+    </div>
+  );
 };
 
 export default Modal;

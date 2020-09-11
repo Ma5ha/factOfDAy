@@ -52,7 +52,13 @@ function App() {
           },
         }}
       >
-        {showModal ? <Modal /> : null}
+        {showModal ? (
+          <Modal
+            handlleClick={() => {
+              setShowModal(false);
+            }}
+          />
+        ) : null}
 
         <Router>
           <NavBar>
