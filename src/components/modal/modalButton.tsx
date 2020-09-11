@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import themeStyle from "../../hellpers/theme";
 import "./modal.css";
 const ModalButton = ({ clickHandler }) => {
