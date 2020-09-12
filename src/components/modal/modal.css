@@ -74,6 +74,52 @@
 }
 
 form {
+  display: flex;
+  flex-direction: column;
+
   position: relative;
   z-index: 10;
+  align-items: center;
+  margin: 1em;
+}
+
+form input {
+  width: 50%;
+  margin: auto;
+  background-color: inherit;
+  outline: none;
+  color: black;
+  padding: 0%;
+  height: 2em;
+  margin: inherit;
+  border: inset;
+}
+form label {
+  margin: inherit;
+  color: black;
+}
+form input::placeholder {
+  color: black;
+}
+form textarea {
+  margin: inherit;
+  outline: none;
+  font-family: "Akronim";
+  width: 50%;
+  height: 11em;
+  margin: auto;
+  background-color: inherit;
+  color: black;
+  border: inset;
+  text-align: center;
+}
+form textarea::placeholder {
+  color: black;
+}
+
+form button {
+  margin: inherit;
+  border: inset;
+  outline: none;
+  background-color: inherit;
 }
