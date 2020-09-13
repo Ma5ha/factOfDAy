@@ -52,15 +52,14 @@ function App() {
           },
         }}
       >
-        {showModal ? (
-          <Modal
-            handlleClick={() => {
-              setShowModal(false);
-            }}
-          />
-        ) : null}
-
         <Router>
+          {showModal ? (
+            <Modal
+              handlleClick={() => {
+                setShowModal(false);
+              }}
+            />
+          ) : null}
           <NavBar>
             <ToggleButton data={setTheme} />
           </NavBar>

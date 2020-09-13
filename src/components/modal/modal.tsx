@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import themeStyle from "../../hellpers/theme";
-
+import { useHistory, Redirect } from "react-router-dom";
 import "./modal.css";
 import { loggedIn } from "../../hellpers/isLogged";
+import useRedirect from "../../hellpers/useRedirect";
 
 const Modal = ({ handlleClick }) => {
+  const history = useHistory();
+
   const modal = `${themeStyle(["Modal"]).join("")} modal`;
 
   const close = (e) => {
@@ -19,10 +22,9 @@ const Modal = ({ handlleClick }) => {
   };
 
   const handleSubmit = (e) => {
-    if (!loggedIn) {
-      alert("niggaaaaaaaaaa");
-    }
     e.preventDefault();
+
+    history.push("search");
   };
   return (
     <div
