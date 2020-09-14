@@ -11,7 +11,10 @@
   box-shadow: 10px 10px 10px;
   transition: all 2s;
 }
+
 .modalButton {
+  display: flex;
+  justify-content: space-around;
   color: inherit;
   outline: none;
   border-radius: 66%;
@@ -48,6 +51,7 @@
   z-index: 5;
   opacity: 0.9;
 }
+
 .modal {
   position: relative;
   outline: none;
@@ -56,16 +60,14 @@
   justify-content: center;
   border-radius: 20%;
   border: solid 0.1em;
-
   top: 20%;
-
   margin: auto;
   width: 500px;
   height: 500px;
-
   z-index: 10;
   opacity: 1;
 }
+
 .darkModal {
   opacity: 1;
   background-color: black;
@@ -76,7 +78,6 @@
 form {
   display: flex;
   flex-direction: column;
-
   position: relative;
   z-index: 10;
   align-items: center;
@@ -94,13 +95,16 @@ form input {
   margin: inherit;
   border: inset;
 }
+
 form label {
   margin: inherit;
   color: black;
 }
+
 form input::placeholder {
   color: black;
 }
+
 form textarea {
   margin: inherit;
   outline: none;
@@ -113,6 +117,7 @@ form textarea {
   border: inset;
   text-align: center;
 }
+
 form textarea::placeholder {
   color: black;
 }
@@ -122,4 +127,7 @@ form button {
   border: inset;
   outline: none;
   background-color: inherit;
+}
+.fa-feather {
+  width: 20px;
 }
