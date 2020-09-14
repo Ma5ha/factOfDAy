@@ -92,24 +92,22 @@ const SearchPage = () => {
 
   return (
     <div className="profilPageTemplate">
-      <div>
-        <WordsRain
-          words={[
-            "Mark",
+      <WordsRain
+        words={[
+          "Mark",
 
-            "Cool",
-            "Napoleon",
-            "Shu Tzu",
-            "Bad",
-            "King",
-            "Truman",
-            "Happy",
+          "Cool",
+          "Napoleon",
+          "Shu Tzu",
+          "Bad",
+          "King",
+          "Truman",
+          "Happy",
 
-            "Perfection",
-            "Malcom X",
-          ]}
-        />
-      </div>
+          "Perfection",
+          "Malcom X",
+        ]}
+      />
 
       <div className="main">
         <SearchBar
@@ -142,6 +140,7 @@ const SearchPage = () => {
           </div>
         ) : null}
       </div>
+
       <Authors data={{ authors }} />
       {tags ? <Tags data={{ tags }} /> : null}
     </div>
