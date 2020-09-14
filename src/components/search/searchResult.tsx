@@ -6,12 +6,14 @@ import { flexRow, justifayCenter } from "../../styles/style.var";
 import Votes from "../quote/votes";
 
 import themeStyle from "../../hellpers/theme";
-import { Quote as Quot } from "../quote/quoteTypes";
-import hart from "../../assets/heart.svg";
-import like from "../../assets/like.svg";
 
-import dislike from "../../assets/dislike.svg";
 import { api } from "../../enviroment/api";
+import {
+  faThumbsUp,
+  faThumbsDown,
+  faHeart,
+} from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const SearchResult = ({ data: { result, filter, vote } }) => {
   const [style, setStyle] = useState<string>();
@@ -45,7 +47,8 @@ const SearchResult = ({ data: { result, filter, vote } }) => {
             <Votes votes={`${res.downvotes_count}`}>
               <div className="flexColumn columnReverse autoMargin">
                 Downvotes
-                <img
+                <FontAwesomeIcon
+                  icon={faThumbsDown}
                   onClick={() => {
                     vote(api.downvote(res.id));
                     setStyle(res.id + "donwnvotes");
@@ -53,8 +56,7 @@ const SearchResult = ({ data: { result, filter, vote } }) => {
                   className={`${addStyle(res.id + "donwnvotes")} ${themeStyle([
                     "IconShadow",
                   ])}`}
-                  src={dislike}
-                  alt="unlike"
+                  size="2x"
                 />
               </div>
             </Votes>
@@ -62,7 +64,8 @@ const SearchResult = ({ data: { result, filter, vote } }) => {
               <Votes votes={res.upvotes_count}>
                 <div className="flexColumn columnReverse autoMargin">
                   Upvotes
-                  <img
+                  <FontAwesomeIcon
+                    icon={faThumbsUp}
                     onClick={() => {
                       vote(api.upvote(res.id));
                       setStyle(res.id + "upvotes");
@@ -70,8 +73,7 @@ const SearchResult = ({ data: { result, filter, vote } }) => {
                     className={`${addStyle(res.id + "upvotes")} ${themeStyle([
                       "IconShadow",
                     ])}`}
-                    src={like}
-                    alt="like"
+                    size="2x"
                   />
                 </div>
               </Votes>
@@ -81,7 +83,8 @@ const SearchResult = ({ data: { result, filter, vote } }) => {
             <Votes votes={res.favorites_count}>
               <div className="flexColumn columnReverse autoMargin">
                 Favorites
-                <img
+                <FontAwesomeIcon
+                  icon={faHeart}
                   onClick={() => {
                     vote(api.favorite(res.id));
                     setStyle(res.id + "fav");
@@ -89,8 +92,7 @@ const SearchResult = ({ data: { result, filter, vote } }) => {
                   className={`${addStyle(res.id + "fav")} ${themeStyle([
                     "IconShadow",
                   ])}`}
-                  src={hart}
-                  alt="favorite"
+                  size="2x"
                 />
               </div>
             </Votes>
