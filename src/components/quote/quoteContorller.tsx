@@ -67,7 +67,18 @@ const QuoteController = () => {
         </Link>
       </div>
     );
-  return <img className="autoMargin" src={spiner} alt="ssasa" width="50px" />;
+  return (
+    <div
+      className={arrayToString([
+        flexColumn,
+        flexCenter,
+        autoMargin,
+        "fullPage",
+      ])}
+    >
+      <img className="autoMargin" src={spiner} alt="ssasa" width="50px" />;
+    </div>
+  );
 };
 
 export default QuoteController;

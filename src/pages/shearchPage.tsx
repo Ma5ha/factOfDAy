@@ -14,6 +14,7 @@ import token from "../hellpers/isLogged";
 import SearchResult from "../components/search/searchResult";
 import Authors from "../components/search/authors";
 import Tags from "../components/search/tags";
+import WordsRain from "../components/wordsRain/wordsRain";
 
 const SearchPage = () => {
   const [page, setPage] = useState<any>();
@@ -91,6 +92,23 @@ const SearchPage = () => {
 
   return (
     <div className="profilPageTemplate">
+      <WordsRain
+        words={[
+          "Mark",
+
+          "Cool",
+          "Napoleon",
+          "Shu Tzu",
+          "Bad",
+          "King",
+          "Truman",
+          "Happy",
+
+          "Perfection",
+          "Malcom X",
+        ]}
+      />
+
       <div className="main">
         <SearchBar
           handleSubmit={handleSubmit}
@@ -122,6 +140,7 @@ const SearchPage = () => {
           </div>
         ) : null}
       </div>
+
       <Authors data={{ authors }} />
       {tags ? <Tags data={{ tags }} /> : null}
     </div>

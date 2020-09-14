@@ -41,3 +41,9 @@ a {
 .whiteThirdColor {
   color: #1e56a0;
 }
+
+.nav {
+  height: 10%;
+  padding: 1%;
+  margin-bottom: 0px;
+}

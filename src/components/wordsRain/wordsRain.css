@@ -1,0 +1,44 @@
+.rainAnimation {
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  min-width: 100vw;
+  min-height: 10%;
+}
+
+.rainAnimation .item {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  font-size: 15px;
+  opacity: 0;
+}
+
+.animatedItem {
+  animation: rainAnimation 10s infinite forwards;
+}
+
+@keyframes rainAnimation {
+  0% {
+    opacity: 0;
+    top: 0em;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 30em;
+    opacity: 0;
+  }
+}
+
+.rainDrop {
+  padding: 20px;
+  border-radius: 60%;
+  font-size: 2em;
+
+  text-shadow: 11px -10px 7px;
+  writing-mode: vertical-rl;
+}

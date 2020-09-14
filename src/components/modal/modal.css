@@ -1,0 +1,133 @@
+.darkModalButton {
+  background-color: black;
+  background: linear-gradient(#393e46 10%, black 80%);
+  transition: all 2s;
+}
+
+.whiteModalButton {
+  background-color: #163172;
+  color: white !important;
+  background: linear-gradient(#163172 29%, #393e46 102%);
+  box-shadow: 10px 10px 10px;
+  transition: all 2s;
+}
+
+.modalButton {
+  display: flex;
+  justify-content: space-around;
+  color: inherit;
+  outline: none;
+  border-radius: 66%;
+  position: absolute;
+  right: 10%;
+  right: 35px;
+  float: right;
+  width: 5em;
+  padding: 1em;
+  bottom: 1%;
+}
+
+.whiteModal {
+  opacity: 1;
+  background-color: #163172;
+  color: white;
+  background: linear-gradient(
+    164deg,
+    rgba(246, 246, 246, 1) 51%,
+    rgba(22, 49, 114, 1) 219%
+  );
+  transition: all 2s;
+}
+
+.modalWarper {
+  position: absolute;
+  display: flex;
+  overflow: hidden;
+  min-height: 100%;
+  min-width: 100%;
+  margin: auto;
+  justify-content: center;
+  background-color: #393e46;
+  z-index: 5;
+  opacity: 0.9;
+}
+
+.modal {
+  position: relative;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 20%;
+  border: solid 0.1em;
+  top: 20%;
+  margin: auto;
+  width: 500px;
+  height: 500px;
+  z-index: 10;
+  opacity: 1;
+}
+
+.darkModal {
+  opacity: 1;
+  background-color: black;
+  background: linear-gradient(312deg, rgba(0, 173, 181, 1) -67%, #393e46 54%);
+  transition: all 2s;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 10;
+  align-items: center;
+  margin: 1em;
+}
+
+form input {
+  width: 50%;
+  margin: auto;
+  background-color: inherit;
+  outline: none;
+  color: black;
+  padding: 0%;
+  height: 2em;
+  margin: inherit;
+  border: inset;
+}
+
+form label {
+  margin: inherit;
+  color: black;
+}
+
+form input::placeholder {
+  color: black;
+}
+
+form textarea {
+  margin: inherit;
+  outline: none;
+  font-family: "Akronim";
+  width: 50%;
+  height: 11em;
+  margin: auto;
+  background-color: inherit;
+  color: black;
+  border: inset;
+  text-align: center;
+}
+
+form textarea::placeholder {
+  color: black;
+}
+
+form button {
+  margin: inherit;
+  border: inset;
+  outline: none;
+  background-color: inherit;
+}
+.fa-feather {
+  width: 20px;
+}

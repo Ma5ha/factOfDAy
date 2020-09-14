@@ -22,13 +22,13 @@ const NavBar = ({ children }) => {
 
   return (
     <nav
-      style={{ marginBottom: "0px" }}
       className={arrayToString([
         "solidBottomBorder",
         "bottomMarginNav",
         spaceBetween,
         flexRow,
         flexCenter,
+        "nav",
 
         ...themeStyle(["BackGround", "Border"]),
       ])}
@@ -41,7 +41,7 @@ const NavBar = ({ children }) => {
           textCenter,
         ])}
       >
-        {link(links, styler(["ThirdColor"]))}
+        {link(links, styler(["ThirdColor"]), "active")}
         {loggedin.user
           ? link(protectedRoutes, ...themeStyle(["ThirdColor"]))
           : null}

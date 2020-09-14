@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import arrayToString from "../../hellpers/arrayToString";
 import {
@@ -6,23 +6,15 @@ import {
   spaceAround,
   flexRow,
   flexCenter,
-  justifayCenter,
 } from "../../styles/style.var";
 import inputFactory from "../../hellpers/inputFactory";
 import styleToggle from "../../hellpers/styleToggle";
-import Author from "../quote/author";
-import Quote from "../quote/quote";
-import Votes from "../quote/votes";
-import { Quote as Quot } from "../quote/quoteTypes";
+
 import "./shearchBar.css";
 
 import themeStyle from "../../hellpers/theme";
-import hart from "../../assets/heart.svg";
-import like from "../../assets/like.svg";
-
-import dislike from "../../assets/dislike.svg";
-import { api } from "../../enviroment/api";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 const SearchBar = ({ handleSubmit, search, result }) => {
   return (
     <div className={arrayToString([flexColumn, spaceAround])}>
@@ -34,7 +26,18 @@ const SearchBar = ({ handleSubmit, search, result }) => {
           "fullHegiht",
         ])}
       >
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="searchBar">
+          <FontAwesomeIcon
+            icon={faSearch}
+            width="lg"
+            height="3em"
+            style={{
+              position: "relative",
+              top: "50%",
+              /* left: -39%; */
+              right: "45%",
+            }}
+          />
           <input
             {...inputFactory(
               [
