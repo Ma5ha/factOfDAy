@@ -1,5 +1,5 @@
 .smallSearchBar {
-  width: 200px;
+  width: 100%;
   margin: 0px;
   text-align: center;
   border: solid;
@@ -11,7 +11,7 @@
 
 .bigSearchBar {
   height: 40px;
-  width: 700px;
+  width: 100%;
   margin: 30vh;
   text-align: center;
   border: solid;
@@ -125,6 +125,7 @@
 
 .main {
   grid-area: main;
+  transition: width 2s;
 }
 
 .rightIcons {
@@ -169,4 +170,9 @@
 
 a.none {
   color: inherit;
+}
+
+.searchBar {
+  width: 90vw;
+  transform: width 2s;
 }
