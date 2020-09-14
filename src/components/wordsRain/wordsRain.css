@@ -1,37 +1,44 @@
 .rainAnimation {
-    position: absolute;
-    display: flex;
-    justify-content: space-around;
-    min-width: 100vw;
-    min-height: 10%;
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  min-width: 100vw;
+  min-height: 10%;
 }
 
 .rainAnimation .item {
-    position: relative;
-    width: fit-content;
-    height: fit-content;
-    font-size: 15px;
-    opacity: 0;
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  font-size: 15px;
+  opacity: 0;
 }
 
 .animatedItem {
-    animation: rainAnimation 10s infinite forwards
+  animation: rainAnimation 10s infinite forwards;
 }
 
 @keyframes rainAnimation {
-    from {
-        opacity: 1;
-        top: 0em
-    }
-    to {
-        top: 30em;
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+    top: 0em;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 30em;
+    opacity: 0;
+  }
 }
 
 .rainDrop {
-    padding: 20px;
-    border-radius: 60%;
-    background-color: lawngreen;
-    filter: drop-shadow(2px 2px 2px);
+  padding: 20px;
+  border-radius: 60%;
+  font-size: 2em;
+
+  text-shadow: 11px -10px 7px;
+  writing-mode: vertical-rl;
 }

@@ -48,6 +48,9 @@
   grid-template-columns: 25% 50% 25%;
 }
 
+.active {
+  color: black;
+}
 .main {
   grid-area: main;
 }
