@@ -176,3 +176,23 @@ a.none {
   width: 90vw;
   z-index: 2;
 }
+
+.shearchIcon {
+  width: 5em;
+  height: 5em;
+}
+
+.shearchIcon svg {
+  padding: 15%;
+  border: none 2px;
+  border-radius: 20em;
+  /* width: 4em;
+  height: 4em; */
+}
+
+.shearchIcon svg:hover {
+  border: solid 2px black;
+  /* background-color: white; */
+  border-radius: 20em;
+  transition: all 1s;
+}
