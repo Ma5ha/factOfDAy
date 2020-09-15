@@ -46,6 +46,7 @@ a {
   height: 10%;
   padding: 1%;
   margin-bottom: 0px;
+  border-bottom: solid 0.2rem;
 }
 
 .whiteNavItem {
