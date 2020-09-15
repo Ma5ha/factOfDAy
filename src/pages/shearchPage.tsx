@@ -92,22 +92,24 @@ const SearchPage = () => {
 
   return (
     <div className="profilPageTemplate">
-      <WordsRain
-        words={[
-          "Mark",
+      {result ? null : (
+        <WordsRain
+          words={[
+            "Mark",
 
-          "Cool",
-          "Napoleon",
-          "Shu Tzu",
-          "Bad",
-          "King",
-          "Truman",
-          "Happy",
+            "Cool",
+            "Napoleon",
+            "Shu Tzu",
+            "Bad",
+            "King",
+            "Truman",
+            "Happy",
 
-          "Perfection",
-          "Malcom X",
-        ]}
-      />
+            "Perfection",
+            "Malcom X",
+          ]}
+        />
+      )}
 
       <div className="main">
         <SearchBar
