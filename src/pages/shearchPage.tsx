@@ -92,25 +92,6 @@ const SearchPage = () => {
 
   return (
     <div className="profilPageTemplate">
-      {result ? null : (
-        <WordsRain
-          words={[
-            "Mark",
-
-            "Cool",
-            "Napoleon",
-            "Shu Tzu",
-            "Bad",
-            "King",
-            "Truman",
-            "Happy",
-
-            "Perfection",
-            "Malcom X",
-          ]}
-        />
-      )}
-
       <div className="main">
         <SearchBar
           handleSubmit={handleSubmit}
