@@ -1,9 +1,9 @@
 import React from "react";
 
-const ActionMessage = ({ message }) => {
+const ActionMessage = ({ trackable_value }) => {
   return (
     <div className="message">
-      <p>{message}</p>
+      <p>{trackable_value}</p>
     </div>
   );
 };

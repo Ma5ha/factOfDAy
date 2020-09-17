@@ -4,8 +4,7 @@ const Action = ({ action }) => {
   const className = "action flexRow spaceBetween";
   return (
     <div {...{ className }}>
-      <h3>Action</h3>
-      <p>{action}</p>
+      <h3>{action}</h3>
     </div>
   );
 };
