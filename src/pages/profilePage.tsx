@@ -11,7 +11,7 @@ import styler from "../hellpers/styler";
 
 import token from "../hellpers/isLogged";
 import UserProfile from "../components/profile/userProfile";
-import Activities from "../components/user/activities";
+import Activities from "../components/activities/activities";
 import { activitiesResponse } from "../types/activities";
 
 const ProfilePage = () => {
@@ -48,17 +48,22 @@ const ProfilePage = () => {
 
   return user ? (
     <div className={styler(["seconBackground"])}>
-      <UserProfile user={user}>
-        <button onClick={handlleLogOut} className={styler(["Button"])}>
-          Log Out
-        </button>
-      </UserProfile>
-
-      {activitiesObject
-        ? activitiesObject.activities.map((activities) => (
-            <Activities {...{ activities }} />
-          ))
-        : null}
+      <div className="profilePage">
+        <div className="userPro">
+          <UserProfile user={user}>
+            <button onClick={handlleLogOut} className={styler(["Button"])}>
+              Log Out
+            </button>
+          </UserProfile>
+        </div>
+        <div className="userActivites">
+          {activitiesObject
+            ? activitiesObject.activities.map((activities) => (
+                <Activities {...{ activities }} />
+              ))
+            : null}
+        </div>
+      </div>
     </div>
   ) : null;
 };

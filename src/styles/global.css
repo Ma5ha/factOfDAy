@@ -364,3 +364,20 @@ img {
 .buttons {
   margin-top: 5px;
 }
+
+.profilePage {
+  display: grid;
+  grid-template-areas: "profile activities";
+  grid-template-columns: 30% 50%;
+}
+
+.userPro {
+  grid-area: profile;
+}
+
+.userActivites {
+  grid-area: activities;
+  scroll-behavior: smooth;
+  overflow: scroll;
+  height: 100vh;
+}
