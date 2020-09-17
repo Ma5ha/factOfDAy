@@ -5,15 +5,12 @@ import { api } from "../enviroment/api";
 import { Heeaders } from "../actions/Headers";
 import { useHistory } from "react-router-dom";
 import deleteRequest from "../actions/deleteRequest";
-import UserName from "../components/profile/userName";
-import Email from "../components/profile/email";
-import Counter from "../components/profile/counter";
-import Image from "../components/profile/image";
+
 import isLoggedin from "../context/login";
 import styler from "../hellpers/styler";
-import { flexColumn, autoMargin } from "../styles/style.var";
-import arrayToString from "../hellpers/arrayToString";
+
 import token from "../hellpers/isLogged";
+import UserProfile from "../components/profile/userProfile";
 
 const ProfilePage = () => {
   const log = useContext(isLoggedin);
@@ -32,44 +29,27 @@ const ProfilePage = () => {
     log.set();
   };
 
-  const callBack = (x) => {
+  const signUpCallBack = (x) => {
     setUser(x);
   };
-
+  const activitesCallBack = (x) => {
+    console.log(x);
+  };
   useEffect(() => {
-    getRequest(api.signUp(), callBack, config);
-  }, [config]);
+    getRequest(api.signUp(), signUpCallBack, config);
+  }, []);
+
+  // useEffect(() => {
+  //   getRequest(api.activities(), activitesCallBack, config);
+  // });
 
   return user ? (
     <div className={styler(["seconBackground"])}>
-      <div className={arrayToString([flexColumn, autoMargin])}>
-        <div className={autoMargin}>
-          <UserName user={user} />
-        </div>
-        <div className={autoMargin}>
-          <Image user={user} />
-        </div>
-        <div className={autoMargin}>
-          <Email user={user} />
-        </div>
-        <div className={autoMargin}>
-          <Counter follow={user?.followers} type={"followers"} />
-        </div>
-        <div className={autoMargin}>
-          <Counter follow={user?.following} type={"following"} />{" "}
-        </div>
-        <div className={autoMargin}>
-          <Counter
-            follow={user.account_details?.private_favorites_count}
-            type={"Private favorites"}
-          />
-          <div className={autoMargin}>
-            <button onClick={handlleLogOut} className={styler(["Button"])}>
-              Log Out
-            </button>
-          </div>
-        </div>
-      </div>
+      <UserProfile user={user}>
+        <button onClick={handlleLogOut} className={styler(["Button"])}>
+          Log Out
+        </button>
+      </UserProfile>
     </div>
   ) : null;
 };
