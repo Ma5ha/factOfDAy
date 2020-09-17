@@ -11,12 +11,14 @@ import styler from "../hellpers/styler";
 
 import token from "../hellpers/isLogged";
 import UserProfile from "../components/profile/userProfile";
+import Activities from "../components/user/activities";
+import { activitiesResponse } from "../types/activities";
 
 const ProfilePage = () => {
   const log = useContext(isLoggedin);
   const history = useHistory();
   const [user, setUser] = useState<User>();
-
+  const [activitiesObject, setActivites] = useState<activitiesResponse>();
   const config = {
     headers: { ...Heeaders, "User-Token": token() },
   };
@@ -32,16 +34,17 @@ const ProfilePage = () => {
   const signUpCallBack = (x) => {
     setUser(x);
   };
-  const activitesCallBack = (x) => {
+  const activitesCallBack = (x: activitiesResponse) => {
+    setActivites({ ...x });
     console.log(x);
   };
   useEffect(() => {
     getRequest(api.signUp(), signUpCallBack, config);
   }, []);
 
-  // useEffect(() => {
-  //   getRequest(api.activities(), activitesCallBack, config);
-  // });
+  useEffect(() => {
+    getRequest<activitiesResponse>(api.activities(), activitesCallBack, config);
+  }, []);
 
   return user ? (
     <div className={styler(["seconBackground"])}>
@@ -50,6 +53,12 @@ const ProfilePage = () => {
           Log Out
         </button>
       </UserProfile>
+
+      {activitiesObject
+        ? activitiesObject.activities.map((activities) => (
+            <Activities {...{ activities }} />
+          ))
+        : null}
     </div>
   ) : null;
 };
