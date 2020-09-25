@@ -364,3 +364,12 @@ img {
 .buttons {
   margin-top: 5px;
 }
+
+.navBorder {
+  border-radius: 20px;
+  border: solid;
+  margin: auto;
+  padding-left: 8em;
+  padding-right: 8em;
+  font-family: 'Titillium Web', sans-serif;
+}
