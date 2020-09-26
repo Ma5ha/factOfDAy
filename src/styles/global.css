@@ -378,4 +378,7 @@ img {
   position: relative;
   display: inline-block;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
 }

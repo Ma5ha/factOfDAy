@@ -11,7 +11,7 @@ const HomePage = () => {
   const [quotes, setQuotes] = useState<any>();
   const quotesCallback = (arg) => {
     const { quotes } = arg;
-    setQuotes(quotes);
+    setQuotes(quotes.slice(0, 5));
   };
   useEffect(() => {
     getRequest(api.quotes(), quotesCallback, { headers: { ...Heeaders } });
