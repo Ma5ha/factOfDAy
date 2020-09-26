@@ -373,3 +373,9 @@ img {
   padding-right: 8em;
   font-family: 'Titillium Web', sans-serif;
 }
+
+.homeQuotes {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
