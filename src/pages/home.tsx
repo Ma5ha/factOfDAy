@@ -3,6 +3,7 @@ import getRequest from "../actions/getReequest";
 import { Heeaders } from "../actions/Headers";
 import Card from "../components/card/card";
 import QuoteController from "../components/quote/quoteContorller";
+import QOfDay from "../components/quote/quoteOfDay";
 // import QuoteController from "../components/quote/quoteContorller";
 import { api } from "../enviroment/api";
 
@@ -28,7 +29,7 @@ const HomePage = () => {
           ))}
         </div>
       ) : null}
-      <QuoteController />
+      <QOfDay />
     </div>
   );
 };

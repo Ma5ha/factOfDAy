@@ -204,3 +204,17 @@ h1 {
   left: 104%;
   position: relative;
 }
+
+.quoteOfDay {
+  border-radius: 2%;
+  justify-content: center;
+  border: solid 0.1em;
+  font-family: "Akronim";
+  font-size: 2em;
+  padding: 1%;
+  /* margin: auto; */
+  width: 36%;
+  height: 11.7em;
+  text-align: center;
+  margin-top: 1.4%;
+}
