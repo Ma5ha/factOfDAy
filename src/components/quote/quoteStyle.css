@@ -72,7 +72,8 @@ h1 {
   border-top: none;
   border-left: none;
   /* z-index: 0; */
-  border-radius: 20%; /* box-shadow: 0 0 0 2px skyblue; */
+  border-radius: 20%;
+  /* box-shadow: 0 0 0 2px skyblue; */
   margin-top: 15px;
   /* transform: skew(45deg, 0deg); */
   /* background: rgb(0, 0, 0); */
@@ -141,9 +142,10 @@ h1 {
   border-top-right-radius: 64px;
   bottom: 11%;
 } */
+
 .warperBox {
-  height: calc(70vw * 3 / 4);
-  width: 80vw;
+  height: calc(65vw * 3 / 4);
+  width: 65vw;
   display: flex;
   margin: auto;
   flex-direction: column;
@@ -154,17 +156,18 @@ h1 {
   content: " ";
   height: 18.7%;
   width: 33%;
-
   border: none;
   border-top: solid 0.3em;
   bottom: 5.4%;
   left: 31%;
   z-index: 1;
 }
+
 .whiteLineColor {
   color: #d6e4f0;
   transition: 2s;
 }
+
 .darkLineColor {
   color: #393e46;
   transition: 2s;
@@ -173,7 +176,6 @@ h1 {
 .line div {
   position: relative;
   bottom: 5%;
-
   width: 40%;
   height: 93%;
   border: none;
@@ -182,10 +184,12 @@ h1 {
   border-top-right-radius: 100%;
   z-index: 2;
 }
+
 .whiteLineColor div {
   color: black;
   transition: all 2s;
 }
+
 .darkLineColor div {
   color: #00adb5;
   transition: 2s;
