@@ -11,6 +11,10 @@ To run this project locally first download it. After download install necessary 
 
 To run server run `npm start` and it will open development server. 
 
+
+## Note 
+
+Application is in development, so some features won't work properly, and is for demonstration purposes. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMTMwMzY0NDFdfQ==
+eyJoaXN0b3J5IjpbLTczOTMwMjU2OV19
 -->
