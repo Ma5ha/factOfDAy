@@ -9,5 +9,4 @@ export const api = {
   favorite: (id: number) => api.quotes() + `/${id}/fav`,
   upvote: (id: number) => api.quotes() + `/${id}/upvote`,
   downvote: (id: number) => api.quotes() + `/${id}/downvote`,
-  activities: () => `${api.base}/activities`,
 };

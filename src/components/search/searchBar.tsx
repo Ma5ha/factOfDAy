@@ -26,13 +26,18 @@ const SearchBar = ({ handleSubmit, search, result }) => {
           "fullHegiht",
         ])}
       >
-        <form
-          onSubmit={handleSubmit}
-          className={styleToggle("searchBar", "searchBarTop", result)}
-        >
-          <div className="iconWarp">
-            <FontAwesomeIcon icon={faSearch} width="lg" height="3em" />
-          </div>
+        <form onSubmit={handleSubmit} className="searchBar">
+          <FontAwesomeIcon
+            icon={faSearch}
+            width="lg"
+            height="3em"
+            style={{
+              position: "relative",
+              top: "50%",
+              /* left: -39%; */
+              right: "45%",
+            }}
+          />
           <input
             {...inputFactory(
               [

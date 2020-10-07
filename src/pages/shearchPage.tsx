@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import SearchBar from "../components/search/searchBar";
 import useInputHook from "../customHooks/inputHook";
 import { Heeaders } from "../actions/Headers";
@@ -14,6 +14,7 @@ import token from "../hellpers/isLogged";
 import SearchResult from "../components/search/searchResult";
 import Authors from "../components/search/authors";
 import Tags from "../components/search/tags";
+import WordsRain from "../components/wordsRain/wordsRain";
 
 const SearchPage = () => {
   const [page, setPage] = useState<any>();
@@ -22,7 +23,6 @@ const SearchPage = () => {
   const [tags, setTags] = useState<any[]>();
   const [authors, setAuthors] = useState<any>();
   const [lastPage, setLastPage] = useState<unknown>();
-  // const [typeAhead, setTypeAhead] = useState<unknown>();
 
   let Config = {
     headers: {
@@ -32,10 +32,6 @@ const SearchPage = () => {
     params: { filter, page },
   };
 
-  // useEffect(() => {
-  //   getRequest(api.typehead(), setTypeAhead, Config);
-  //   console.log(typeAhead);
-  // }, []);
   const vote = (url) => {
     putRequest(url, Config);
     getRequest(api.quotes(), quotesCallback, { ...Config });
@@ -70,12 +66,20 @@ const SearchPage = () => {
   const typeheadCallback = (arg) => {
     const { tags } = arg;
     const { authors } = arg;
-
+    // const filtteredAuthors = authors.filter((author) =>
+    //   filterAuthor(author.name, filter, author)
+    // );
     const filteredTags = tags.filter((tag) => tag.name.match(filter));
 
     setAuthors(
       authors.filter((author) => filterAuthor(author.name, filter, author))
     );
+
+    // if (filtteredAuthors.length !== 0) {
+    //   setAuthors(filtteredAuthors);
+    // } else {
+    //   setAuthors(null);
+    // }
 
     setTags(filteredTags);
   };
@@ -94,7 +98,6 @@ const SearchPage = () => {
           search={search}
           result={result}
         />
-
         <SearchResult data={{ result, filter, vote }} />
         {page ? (
           <div

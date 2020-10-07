@@ -365,19 +365,25 @@ img {
   margin-top: 5px;
 }
 
-.profilePage {
-  display: grid;
-  grid-template-areas: "profile activities";
-  grid-template-columns: 30% 50%;
+.navBorder {
+  border-radius: 20px;
+  border: solid;
+  margin: auto;
+  padding-left: 8em;
+  padding-right: 8em;
+  font-family: 'Titillium Web', sans-serif;
 }
 
-.userPro {
-  grid-area: profile;
+.homeQuotes {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 33%;
 }
 
-.userActivites {
-  grid-area: activities;
-  scroll-behavior: smooth;
-  overflow-y: scroll;
-  height: 100vh;
+.warpHome {
+  display: flex;
 }

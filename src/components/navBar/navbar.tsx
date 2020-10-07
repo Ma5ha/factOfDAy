@@ -39,9 +39,10 @@ const NavBar = ({ children }) => {
           flexCenter,
           spaceAround,
           textCenter,
+          "navBorder",
         ])}
       >
-        {link(links, styler(["ThirdColor", "NavItem"]), themeStyle(["Active"]))}
+        {link(links, styler(["ThirdColor"]), themeStyle(["Active"]))}
         {loggedin.user
           ? link(protectedRoutes, ...themeStyle(["ThirdColor"]))
           : null}

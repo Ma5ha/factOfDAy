@@ -57,14 +57,16 @@ const QuoteController = () => {
           </div>
 
           <div className={"line " + themeStyle(["LineColor"])}>
-            <div></div>
+            <div>
+              <Link
+                className="none click authorLink"
+                to={`author/${quoteState.quote.author}`}
+              >
+                <Author quote={quoteState.quote} />
+              </Link>
+            </div>
           </div>
         </div>
-
-        <Link className="none click" to={`author/${quoteState.quote.author}`}>
-          <Author quote={quoteState.quote} />
-          <hr className="authorBottomLine" />
-        </Link>
       </div>
     );
   return (
@@ -82,25 +84,3 @@ const QuoteController = () => {
 };
 
 export default QuoteController;
-
-{
-  /* <div className={arrayToString([flexColumn, flexCenter, autoMargin])}>
-        <div className={arrayToString([flexCenter, flexColumn])}>
-          <h1 className={[textCenter, "quoteBox"].join(" ")}>Quote of Day</h1>
-          <div className={"quotes " + themeStyle(["SeconBackground"])}>
-            <div className="click" onClick={get}>
-              <Quote
-                style={"quoteStyle quoteGlow"}
-                quote={[quoteState.quote, ""]}
-              />
-            </div>
-            <Link
-              className="none click autoMargin acronimFont"
-              to={`author/${quoteState.quote.author}`}
-            >
-              <Author quote={quoteState.quote} />
-            </Link>
-          </div>
-        </div>
-      </div> */
-}
