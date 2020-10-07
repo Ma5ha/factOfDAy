@@ -51,6 +51,7 @@
 .active {
   color: black;
 }
+
 .main {
   grid-area: main;
 }
@@ -68,8 +69,7 @@
 }
 
 .fade-in-bottom {
-  -webkit-animation: fade-in-bottom 2s cubic-bezier(0.39, 0.575, 0.565, 1) 1s
-    both;
+  -webkit-animation: fade-in-bottom 2s cubic-bezier(0.39, 0.575, 0.565, 1) 1s both;
   animation: fade-in-bottom 1s cubic-bezier(0.39, 0.575, 0.565, 1) 1s both;
 }
 
@@ -157,7 +157,6 @@
 .fullPage {
   position: relative;
   overflow: hidden;
-
   min-height: 100vh;
 }
 
@@ -192,8 +191,7 @@ img {
 }
 
 .tracking-in-expand {
-  -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1)
-    both;
+  -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
   animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
 }
 
@@ -237,10 +235,8 @@ img {
 }
 
 .tracking-out-contract {
-  -webkit-animation: tracking-out-contract 0.7s
-    cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
-  animation: tracking-out-contract 0.7s cubic-bezier(0.55, 0.085, 0.68, 0.53)
-    both;
+  -webkit-animation: tracking-out-contract 0.7s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: tracking-out-contract 0.7s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 
 /* ----------------------------------------------
@@ -298,6 +294,48 @@ img {
   grid-area: quote;
 }
 
+.leftArrow {
+  font-size: 5em;
+  position: relative;
+  position: absolute;
+  top: 60%;
+  left: 15%;
+  /* color: #00adb5; */
+  transition: 2s;
+}
+
+.leftArrow:hover {
+  font-size: 10em;
+  top: 40%;
+  transform: 2s;
+}
+
+.rightArrow:hover {
+  font-size: 10em;
+  top: 40%;
+  transform: 2s;
+}
+
+.leftArrow p {
+  padding: 0mm;
+  margin: 0mm;
+}
+
+.rightArrow p {
+  padding: 0mm;
+  margin: 0mm;
+}
+
+.rightArrow {
+  float: right;
+  font-size: 5em;
+  right: 15%;
+  top: 60%;
+  position: absolute;
+  /* color: #00adb5; */
+  transition: 2s;
+}
+
 .slides {
   display: flex;
   flex-direction: row;
@@ -325,4 +363,21 @@ img {
 
 .buttons {
   margin-top: 5px;
+}
+
+.profilePage {
+  display: grid;
+  grid-template-areas: "profile activities";
+  grid-template-columns: 30% 50%;
+}
+
+.userPro {
+  grid-area: profile;
+}
+
+.userActivites {
+  grid-area: activities;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  height: 100vh;
 }

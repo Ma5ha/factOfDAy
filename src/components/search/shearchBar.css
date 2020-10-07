@@ -1,18 +1,19 @@
 .smallSearchBar {
-  width: 100%;
+  width: 50vw;
   margin: 0px;
   text-align: center;
   border: solid;
   opacity: 1;
-  transition: all 2s;
   height: 40px;
-  font-size: medium;
+  transition: all 2s;
 }
 
 .bigSearchBar {
+  position: relative;
   height: 40px;
-  width: 100%;
-  margin: 30vh;
+  width: 50vw;
+  /* margin: 30vh; */
+  margin-bottom: 0;
   text-align: center;
   border: solid;
   opacity: 1;
@@ -173,6 +174,47 @@ a.none {
 }
 
 .searchBar {
-  width: 90vw;
   z-index: 2;
+  margin: 0;
+  padding: 0;
+  top: 30vh;
+  transition: all 1s
+}
+
+.searchBarTop {
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+  top: 1vh;
+  transition: all 1s
+}
+
+.shearchIcon {
+  width: 5em;
+  height: 5em;
+}
+
+.shearchIcon svg {
+  padding: 15%;
+  border: none 2px;
+  border-radius: 20em;
+  /* width: 4em;
+  height: 4em; */
+}
+
+.shearchIcon svg:hover {
+  border: solid 2px black;
+  /* background-color: white; */
+  border-radius: 20em;
+  transition: all 1s;
+}
+
+.iconWarp {
+  position: absolute;
+  z-index: 4;
+  top: 26%;
+  left: 1%
+  /* top: 
+    right: 
+    zIndex: 4, */
 }

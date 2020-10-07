@@ -40,8 +40,26 @@ const Carousel = ({ children }) => {
   };
 
   return (
-    <div className="flexColumn flexCenter autoMargin">
+    <div className="flexColumn flexCenter autoMargin carouselWarp">
       <div className="carousel autoMargin">
+        <div className="leftArrow click">
+          <p
+            onClick={() => {
+              previous();
+            }}
+          >
+            &#10092;
+          </p>
+        </div>
+        <div className="rightArrow click">
+          <p
+            onClick={() => {
+              next();
+            }}
+          >
+            &#10093;
+          </p>
+        </div>
         <div
           className={"slideFrame " + themeStyle(["CarouselSlide"]).join(" ")}
         >
@@ -77,7 +95,7 @@ const Carousel = ({ children }) => {
           </div>
         </div>
       </div>
-      <div className="buttons autoMargin">
+      {/* <div className="buttons autoMargin">
         <button
           className={`round ${themeStyle(["Button"]).join("")}`}
           onClick={() => {
@@ -94,7 +112,7 @@ const Carousel = ({ children }) => {
         >
           next
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -45,7 +45,7 @@ const SearchResult = ({ data: { result, filter, vote } }) => {
           <div className="lefIcons">
             <div className={arrayToString([flexRow, justifayCenter])}></div>
             <Votes votes={`${res.downvotes_count}`}>
-              <div className="flexColumn columnReverse autoMargin">
+              <div className="flexColumn columnReverse autoMargin shearchIcon">
                 Downvotes
                 <FontAwesomeIcon
                   icon={faThumbsDown}
@@ -62,7 +62,7 @@ const SearchResult = ({ data: { result, filter, vote } }) => {
             </Votes>
             <div style={{ margin: "0 10px 0 10px" }}>
               <Votes votes={res.upvotes_count}>
-                <div className="flexColumn columnReverse autoMargin">
+                <div className="flexColumn columnReverse autoMargin shearchIcon">
                   Upvotes
                   <FontAwesomeIcon
                     icon={faThumbsUp}
@@ -81,7 +81,7 @@ const SearchResult = ({ data: { result, filter, vote } }) => {
           </div>
           <div className="rightIcons">
             <Votes votes={res.favorites_count}>
-              <div className="flexColumn columnReverse autoMargin">
+              <div className="flexColumn columnReverse autoMargin shearchIcon">
                 Favorites
                 <FontAwesomeIcon
                   icon={faHeart}

@@ -21,9 +21,7 @@ const WordsRain = ({ words }: prop) => {
     startAnimation(currentNode);
 
     nodIterator(currentNode.nextSibling);
-    currentNode.onanimationend = () => {
-      console.log("as");
-    };
+    currentNode.onanimationend = () => {};
     // currentNode.animationstart((e) => {
     //   nodIterator(currentNode.nextSibling);
     // });
@@ -31,7 +29,7 @@ const WordsRain = ({ words }: prop) => {
 
   const startAnimation = (child) => {
     // child.hidden = false;
-    child.classList.toggle("animatedItem");
+    child.classList.add("animatedItem");
     // child.style.animationDelay = `${10 * Math.random()}s;`;
 
     child.style.animationDelay = `${10 * Math.random()}s`;
