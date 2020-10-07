@@ -109,7 +109,29 @@
 }
 
 .authorCard {
-    display: block;
+    display: flex;
+    flex-direction: column;
     margin: auto;
     cursor: pointer;
+}
+
+.authorCard div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.authorCard div h6 {
+    font-size: 2em;
+    margin: auto;
+}
+
+.authorCard div h6 svg {
+    padding: 0.2em;
+    box-sizing: border-box;
+}
+
+.authorCard div h6 svg:hover {
+    border: solid;
+    border-radius: 20px;
 }
